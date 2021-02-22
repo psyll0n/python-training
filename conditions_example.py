@@ -1,6 +1,7 @@
 
 # Ask the user to specify his / her age.
-age = int(input("Please, enter your age: "))
+age = input("Please, enter your age: ")
+age = int(age)
 
 # Check the user input and print certain output.
 
