@@ -1,10 +1,33 @@
 
-# Ask for user input first.
+# Define a tuple with colours
 
-num = int(input("Please, enter a number betwee 1 and 99."))
+colours = ('Orange', 'Green', 'Yellow', 'Blue', 'Red', 'Purple')
 
-# Use the user input to loop through the numnbers until it reaches to 100.
+# Loop through the coulours in the tuple use 'continue' to continue the looping. 
 
-while num <= 100:
-    print(num)
-    num = num + 1
+print("Starting the loop...")
+for colour in colours:
+	if colour == 'Orange':
+		continue
+	print(colour)
+print("Loop has ended.")
+
+
+# Define a second tuple with colours.    
+
+colours2 = ('Orange', 'Green', 'Yellow', 'Blue', 'Red', 'Purple')
+
+# Loop through the colours in the tuple. 'break' interrupts the looping process. 
+
+print("Starting the loop...")
+for colour in colours2:
+        if colour == 'Blue':
+                break 
+        print(colour)
+print("Loop has ended.")
+
+
+# for loop shorthand syntax
+
+print("for loop shorthand")
+[print(x) for x in colours]

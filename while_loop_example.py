@@ -1,8 +1,11 @@
 
-# Example while loop in python
+thisisalist = ['banana', 'mango', 'kiwi', 'orange', 'melon', 'apricot', 'peach']
+print(thisisalist)
 
-num = 100
+i = 0 
 
-while num > 0:
-	print(num)
-	num = num - 5
+while i < len(thisisalist):
+	print(thisisalist[i])
+	i = i + 1
+
+
