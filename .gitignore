@@ -1,3 +1,4 @@
 python-master
 __pycache__
 _linux
+*.xml
