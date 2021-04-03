@@ -12,5 +12,5 @@ try:
     print("Your third variable is:", second) 
     print("Your fourth variable is:", third)
 except:
-    print("example: python3 unpacking_example.py first second third")
+    print("example: python3 unpacking_example.py <first_arg> <second_arg> <third_arg>")
 

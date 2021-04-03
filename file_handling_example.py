@@ -8,7 +8,7 @@ print(f.read())
 
 # If the file is located in a different location, you will have to specify the file path, like this:
 
-f = open("/Users/aleksandar.yakimov/python/scripts/demofile.txt", "r")
+f = open("/home/psyll0n/python/python-master/demofile.txt", "r")
 print(f.read())
 
 # By default the read() method returns the whole text, but you can also specify how many characters you want to return:
