@@ -16,8 +16,12 @@ try:
 
     input()
 
-    out_file = open(to_file, 'w')
-    out_file.write(indata)
+#   out_file = open(to_file, 'w')
+#   out_file.write(indata)
+
+#   The lines above are abbreviated as follows.
+
+    indata = open(from_file).read()
 
     print("Alright, all done.")
 
