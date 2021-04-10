@@ -50,38 +50,3 @@ formula = secret_formula(start_point)
 # This is an easy way to apply a list to a format string.
 
 print ("We'd have {} beans, {} jars, and {} crates.".format(*formula))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
