@@ -20,22 +20,25 @@ try:
 
     print("Now I'm going to ask you for three lines.")
 
-    line1 = input("line 1: ")
-    line2 = input("line 2: ")
-    line3 = input("line 3: ")
+
+#   line1 = input("line 1: ")
+#   line2 = input("line 2: ")
+#   line3 = input("line 3: ")
+
+
+# The line above can be abbreviated as follows:
+
+#   target.write('{}\n{}\n{}\n'.format(line1, line2, line3))
 
     print("I'm going to write these to the file.") 
 
-#   target.write(line1)
-#   target.write("\n")
-#   target.write(line2)
-#   target.write("\n")
-#   target.write(line3)
-#   target.write("\n")
 
-#   The line above can be abbreviated as follows:
-
-    target.write('{}\n{}\n{}\n'.format(line1, line2, line3))
+    target.write(line1)
+    target.write("\n")
+    target.write(line2)
+    target.write("\n")
+    target.write(line3)
+    target.write("\n")
 
     print("And finally, we close it.")
     target.close()
