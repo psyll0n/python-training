@@ -8,11 +8,13 @@ guesses = []
 minimum = 1
 maximum = 20
 
+# Make an API call and get a random integer between the values specified in the variables minimum and maximum.
 try:
     response = requests.get("http://www.randomnumberapi.com/api/v1.0/random", params = (('min', minimum),('max', maximum)))
+    # If the call is successful get the value of the random integer from the generated JSON. 
     random = response.json()[0]
-    # This means that something went wrong and the API call failed.
 except:
+    # This means that something went wrong and the API call failed.
     random = randrange(1, 20)
 
 try:
