@@ -1,4 +1,3 @@
-
 # Ask the user for his input - "name" and write to a file "name.txt"
 f = open("username_and_age.txt", "a")
 f.write(" name: ")
@@ -22,5 +21,3 @@ print(f.read())
 # Open and read the file after the appending:
 f = open("username_and_age.txt", "r")
 print(f.read())
-
-

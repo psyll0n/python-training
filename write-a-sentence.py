@@ -1,4 +1,4 @@
-# Ask for a sentence. 
+# Ask for a sentence.
 # Print the length of the sentence.
 # Ask for a file name (.txt).
 # Write the sentence to the file.
@@ -18,9 +18,8 @@ file_name = f"{file_name}.txt"
 
 
 with open(file_name, "w") as f:
-	f.write(sentence)
-	f.close()
+    f.write(sentence)
+    f.close()
 
 
 print(f"{name} you have writen {sentence_length} characters to {file_name}")
-

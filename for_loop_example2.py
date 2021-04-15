@@ -1,7 +1,5 @@
-
-
 # Create a list called 'fruits'.
-fruits = ['apple', 'banana', 'apricot', 'cherry', 'pineapple', 'mango']
+fruits = ["apple", "banana", "apricot", "cherry", "pineapple", "mango"]
 
 # Define a second empty list called 'newlist'.
 
@@ -11,7 +9,7 @@ newlist = []
 
 for x in fruits:
     if "a" in x:
-    	newlist.append(x)
+        newlist.append(x)
 
 
 print(fruits)
@@ -37,5 +35,3 @@ print(fruitlist)
 
 listofnumbers = [x for x in range(10) if x < 5]
 print(listofnumbers)
-
-

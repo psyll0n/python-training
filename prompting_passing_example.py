@@ -4,10 +4,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
-
 try:
     script, user_name = argv
-    prompt = '>'
+    prompt = ">"
 
     print(f"Hi {user_name}, I'm the {script} script.")
     print(f"I'd like to ask you a few questions.")
@@ -21,11 +20,11 @@ try:
     print(f"What kind of computer do you have?")
     computer = input(prompt)
 
-    print(f"""
+    print(
+        f"""
     Alright, so you said {likes} about liking me.
     You live in {lives}. Not sure where that is.
-    And you have a {computer} computer. Nice.""")
+    And you have a {computer} computer. Nice."""
+    )
 except:
     print("example: python3 prompting_passing_example.py <username>")
-
-

@@ -34,4 +34,4 @@ try:
     print_a_line(current_line, current_file)
 
 except:
-     print("example: python3 functions_and_files.py <file_name.txt>")
+    print("example: python3 functions_and_files.py <file_name.txt>")

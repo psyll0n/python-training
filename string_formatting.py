@@ -29,4 +29,4 @@ print(myorder.format(quantity, itemno, price))
 # but then you must use names when you pass the parameter values txt.format(carname = "Ford"):
 
 myorder = "I have a {carname}, it is a {model}."
-print(myorder.format(carname = "Ford", model = "Mustang"))
+print(myorder.format(carname="Ford", model="Mustang"))

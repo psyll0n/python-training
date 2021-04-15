@@ -3,7 +3,7 @@ from sys import argv
 try:
     script, filename = argv
     txt = open(filename)
-    
+
     print(f"Here is your file {filename}:")
     print(txt.read())
 

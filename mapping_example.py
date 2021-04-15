@@ -6,7 +6,7 @@ for num in nums:
     print(num * 4)
 
 
-new_nums = [num*4 for num in nums]
+new_nums = [num * 4 for num in nums]
 
 new_nums
 
@@ -15,9 +15,10 @@ def new_func(num):
     if num > 5:
         num = num + 4
     else:
-        num = num - 4 
+        num = num - 4
 
-    return num**2
+    return num ** 2
+
 
 nums
 

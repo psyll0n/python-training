@@ -2,13 +2,12 @@ from sys import argv, version
 import os
 
 try:
-    print("How old are you?", end=' ')
+    print("How old are you?", end=" ")
     age = input()
-    print("How tall are you?", end=' ')
+    print("How tall are you?", end=" ")
     height = input()
-    print("How much do you weigh?", end=' ')
+    print("How much do you weigh?", end=" ")
     weight = input()
-
 
     print(f"So, you're {age} old, {height} tall and {weight} heavy.")
 
@@ -26,9 +25,10 @@ try:
     txt_again = open(file_again, "r")
     print(txt_again.read())
 
-
     print("Let's practice everything.")
-    print('You\'d need to know \'bout escapes \n with \\ that do \n newlines and \t tabs.')
+    print(
+        "You'd need to know 'bout escapes \n with \\ that do \n newlines and \t tabs."
+    )
 
     poem = """
     \tThe lovely world
@@ -43,7 +43,6 @@ try:
     print(poem)
     print("--------------")
 
-
     five = 10 - 2 + 3 - 6
     print(f"This should be five: {five}")
 
@@ -52,7 +51,6 @@ try:
         jars = jelly_beans / 1000
         crates = jars / 100
         return jelly_beans, jars, crates
-
 
     start_point = 10000
     beans, jars, crates = secret_formula(start_point)
@@ -69,11 +67,9 @@ try:
     # this is an easy way to apply a list to a format string
     print("We'd have {} beans, {} jars, and {} crates.".format(*formula))
 
-
     people = 20
     cats = 30
     dogs = 15
-
 
     if people < cats:
         print("Too many cats! The world is doomed!")
@@ -87,7 +83,6 @@ try:
     if people > dogs:
         print("The world is dry!")
 
-
     dogs += 5
 
     if people >= dogs:
@@ -95,7 +90,6 @@ try:
 
     if people <= dogs:
         print("People are less than or equal to dogs.")
-
 
     if people == dogs:
         print("People are dogs.")

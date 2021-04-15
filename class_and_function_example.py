@@ -1,13 +1,15 @@
 # Insert a function that prints a greeting, and execute it on the p1 object:
 # Objects can also contain methods. Methods in objects are functions that belong to the object.
 
-class Person:
-  def __init__(self, name, age):
-    self.name = name
-    self.age = age
 
-  def myfunc(self):
-    print("Hello my name is " + self.name)
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def myfunc(self):
+        print("Hello my name is " + self.name)
+
 
 p1 = Person("John", 36)
 p1.myfunc()
@@ -21,13 +23,15 @@ p1.myfunc()
 
 # Use the words mysillyobject and abc instead of self:
 
-class Person:
-  def __init__(mysillyobject, name, age):
-    mysillyobject.name = name
-    mysillyobject.age = age
 
-  def myfunc(abc):
-    print("Hello my name is " + abc.name)
+class Person:
+    def __init__(mysillyobject, name, age):
+        mysillyobject.name = name
+        mysillyobject.age = age
+
+    def myfunc(abc):
+        print("Hello my name is " + abc.name)
+
 
 p1 = Person("John", 36)
 p1.myfunc()

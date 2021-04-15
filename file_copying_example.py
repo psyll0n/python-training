@@ -8,7 +8,7 @@ try:
     print(f"Copying from {from_file} to {to_file}")
 
     in_file = open(from_file)
-    indata =  in_file.read()
+    indata = in_file.read()
 
     print(f"The input file is {len(indata)} bytes long.")
     print(f"Does the output file exist? {exists(to_file)}")
@@ -16,10 +16,10 @@ try:
 
     input()
 
-#   out_file = open(to_file, 'w')
-#   out_file.write(indata)
+    #   out_file = open(to_file, 'w')
+    #   out_file.write(indata)
 
-#   The lines above are abbreviated as follows.
+    #   The lines above are abbreviated as follows.
 
     indata = open(from_file).read()
 
@@ -30,4 +30,3 @@ try:
 
 except:
     print("example: python3 file_copying_example.py sample.txt demo.txt")
-
