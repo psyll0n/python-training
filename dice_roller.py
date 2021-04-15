@@ -28,3 +28,11 @@ def main():
   print(f"You have rolled a total of: {dice_sum}")
 if __name__== "__main__":
   main()        
+
+"""
+Here are some potential Next Steps:
+
+Add more inputs (like player or team name).
+Store each player's roll totals in separate arrays.
+Choose a dice-based game that you can fully simulate using python.
+"""
