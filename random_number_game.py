@@ -13,7 +13,10 @@ maximum = 20
 try:
     response = requests.get("http://www.randomnumberapi.com/api/v1.0/random", params = (('min', minimum),('max', maximum)))
     # If the call is successful get the value of the random integer from the generated JSON.
-    random = response.json()[0]
+    if response.status_code == 200:
+        random = response.json()[0]
+    else:
+        random = randrange(minimum, maximum)
 except:
     # This means that something went wrong and the API call produced a status code different than 200.
     random = randrange(minimum, maximum)
