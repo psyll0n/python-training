@@ -3,6 +3,3 @@
 from func_module import func_age
 
 func_age(41)
-
-
-

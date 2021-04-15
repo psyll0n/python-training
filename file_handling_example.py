@@ -1,4 +1,3 @@
-
 import os
 
 # The open() function returns a file object, which has a read() method for reading the content of the file:
@@ -34,7 +33,7 @@ print(f.readline())
 
 f = open("demofile.txt", "r")
 for x in f:
-  print(x)
+    print(x)
 
 # It is a good practice to always close the file when you are done with it.
 
@@ -50,7 +49,7 @@ f = open("demofile.txt", "a")
 f.write("Now the file has more content!")
 f.close()
 
-#open and read the file after the appending:
+# open and read the file after the appending:
 f = open("demofile.txt", "r")
 print(f.read())
 
@@ -61,7 +60,7 @@ f = open("demofile.txt", "w")
 f.write("Woops! I have deleted the content!")
 f.close()
 
-#open and read the file after the appending:
+# open and read the file after the appending:
 f = open("demofile.txt", "r")
 print(f.read())
 
@@ -78,12 +77,13 @@ os.remove("myfile.txt")
 # To avoid getting an error, you might want to check if the file exists before you try to delete it:
 
 if os.path.exists("demofile.txt"):
-  os.remove("demofile.txt")
+    os.remove("demofile.txt")
 else:
-  print("The file does not exist")
+    print("The file does not exist")
 
 
 # To delete an entire folder, use the os.rmdir() method:
 
 import os
+
 os.rmdir("myfolder")

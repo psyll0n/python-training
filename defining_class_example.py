@@ -1,12 +1,11 @@
-
 class Dog:
     def __init__(self, name, age):
         self.name = name
         self.age = age
 
 
-# Notice that the .__init__() method’s signature is indented four spaces. 
-# The body of the method is indented by eight spaces. 
+# Notice that the .__init__() method’s signature is indented four spaces.
+# The body of the method is indented by eight spaces.
 # This indentation is vitally important.
 # It tells Python that the .__init__() method belongs to the Dog class.
 # In the body of .__init__(), there are two statements using the self variable:
@@ -15,14 +14,14 @@ class Dog:
 #  self.age = age creates an attribute called age and assigns to it the value of the age parameter.
 
 
-
-# Attributes created in .__init__() are called instance attributes. An instance attribute’s value is specific to a particular instance of the class. 
+# Attributes created in .__init__() are called instance attributes. An instance attribute’s value is specific to a particular instance of the class.
 # All Dog objects have a name and an age, but the values for the name and age attributes will vary depending on the Dog instance.
 
-# On the other hand, class attributes are attributes that have the same value for all class instances. 
+# On the other hand, class attributes are attributes that have the same value for all class instances.
 # You can define a class attribute by assigning a value to a variable name outside of .__init__().
 
 # For example, the following Dog class has a class attribute called species with the value "Canis familiaris":
+
 
 class Dog:
     # Class attribute
@@ -31,6 +30,7 @@ class Dog:
     def __init__(self, name, age):
         self.name = name
         self.age = age
+
 
 # To pass arguments to the name and age parameters, put values into the parentheses after the class name:
 
@@ -49,11 +49,13 @@ print(miles.species)
 print(miles.age)
 
 
-# Instance methods are functions that are defined inside a class and can only be called from an instance of that class. 
+# Instance methods are functions that are defined inside a class and can only be called from an instance of that class.
 # Just like .__init__(), an instance method’s first parameter is always self.
+
 
 class SpeakingDog:
     species = "Canis familiaris"
+
     def __init__(self, name, age):
         self.name = name
         self.age = age
@@ -65,6 +67,7 @@ class SpeakingDog:
     # Another instance method
     def speak(self, sound):
         return f"{self.name} says {sound}"
+
 
 # This SpeakingDog class has two instance methods:
 
@@ -87,4 +90,3 @@ print(charly)
 print(charly.species)
 print(charly.description())
 print(charly.speak("woof woof!"))
-

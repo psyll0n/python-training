@@ -1,4 +1,3 @@
-
 # Ask the user to specify his / her age.
 age = input("Please, enter your age: ")
 age = int(age)
@@ -16,6 +15,5 @@ elif age >= 21:
     print("You are an adult. You can consume alcohol in the USA!")
 
 # Else condition example...
-else: 
+else:
     print("You have not specified your age!")
-     

@@ -6,9 +6,9 @@ txt = "The rain in Spain"
 x = regex_module.search("^The.*Spain$", txt)
 
 if x:
-  print("YES! We have a match!")
+    print("YES! We have a match!")
 else:
-  print("No match")
+    print("No match")
 
 
 # The findall() function returns a list containing all matches.

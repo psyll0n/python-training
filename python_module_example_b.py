@@ -1,6 +1,6 @@
 # Import the already created python_module_example-a.py module in this script.
 # Also import the built-in python module 'platform'.
-# The third line shows how to import only a specific value from a dictionary. 
+# The third line shows how to import only a specific value from a dictionary.
 # The 'datetime' module displays the current date
 
 

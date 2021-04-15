@@ -8,8 +8,8 @@ try:
         line = language_file.readline()
 
         if line:
-           print_line(line, encoding, errors)
-           return main(language_file, encoding, errors)
+            print_line(line, encoding, errors)
+            return main(language_file, encoding, errors)
 
     def print_line(line, encoding, errors):
         next_lang = line.strip()
@@ -22,5 +22,3 @@ try:
 
 except:
     print("example: python3 encoding_decoding.py utf-8 strict")
-
-

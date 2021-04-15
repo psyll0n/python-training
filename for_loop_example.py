@@ -1,29 +1,28 @@
-
 # Define a tuple with colours
 
-colours = ('Orange', 'Green', 'Yellow', 'Blue', 'Red', 'Purple')
+colours = ("Orange", "Green", "Yellow", "Blue", "Red", "Purple")
 
-# Loop through the coulours in the tuple use 'continue' to continue the looping. 
+# Loop through the coulours in the tuple use 'continue' to continue the looping.
 
 print("Starting the loop...")
 for colour in colours:
-	if colour == 'Orange':
-		continue
-	print(colour)
+    if colour == "Orange":
+        continue
+    print(colour)
 print("Loop has ended.")
 
 
-# Define a second tuple with colours.    
+# Define a second tuple with colours.
 
-colours2 = ('Orange', 'Green', 'Yellow', 'Blue', 'Red', 'Purple')
+colours2 = ("Orange", "Green", "Yellow", "Blue", "Red", "Purple")
 
-# Loop through the colours in the tuple. 'break' interrupts the looping process. 
+# Loop through the colours in the tuple. 'break' interrupts the looping process.
 
 print("Starting the loop...")
 for colour in colours2:
-        if colour == 'Blue':
-                break 
-        print(colour)
+    if colour == "Blue":
+        break
+    print(colour)
 print("Loop has ended.")
 
 
