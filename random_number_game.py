@@ -30,8 +30,7 @@ try:
             print("Your number is above the correct number.")
         elif guess == random:
             print("Good job. You have guessed the correct number!")
-            print(f"Your previous guesses: {guesses}")
-       
+            print(f"Your previous guesses: {guesses}") 
 except:
     print("Please, specify a number between 1 and 20.")
 

@@ -18,4 +18,3 @@ elif age >= 21:
 # Else condition example...
 else: 
     print("You have not specified your age!")
-     
