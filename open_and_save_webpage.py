@@ -1,7 +1,7 @@
 # The script opens up the URL address specified below. It prints the content.
 # Import the URL handling modules.
 # Import the webbrowser module.
-
+    
 import urllib.request, urllib.error, urllib.parse
 import webbrowser
 
