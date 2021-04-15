@@ -26,6 +26,6 @@ message = """<!DOCTYPE html>
 f.write(message)
 f.close()
 
-# Change path to reflect file location
+# Open the html file by specifying its location and name.
 filename = 'file:///Users/aleksandar.yakimov/git/python/scripts/' + 'helloworld.html'
 webbrowser.open_new_tab(filename)
