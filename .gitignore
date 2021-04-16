@@ -4,3 +4,4 @@ _linux
 *.xml
 *.txt
 *.html
+.DS_Store
