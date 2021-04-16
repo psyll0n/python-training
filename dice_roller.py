@@ -3,6 +3,7 @@ import random
 
 # Define a function called main. Promp for user input spcifying the number of dice and dice rolls.
 
+
 def main():
 
     # Define variables dice_rolls, dice_size and dice_sum.
@@ -16,8 +17,10 @@ def main():
 
     for i in range(0, dice_rolls):
         roll = random.randint(1, dice_size)
-        dice_sum += roll  # this can also be written as: dice_sum = dice_sum + roll / x += y /
-    
+        dice_sum += (
+            roll  # this can also be written as: dice_sum = dice_sum + roll / x += y /
+        )
+
         if roll == 1:
             print(f"You rolled a {roll}! Critical fail!")
         elif roll == 6:

@@ -18,9 +18,8 @@ class Two(One):
         print("New total tacos: ", new_tacos)
         return new_tacos
 
+
 two = Two()
 two.speak()
 
 two.total_tacos()
-
-

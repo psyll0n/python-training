@@ -2,7 +2,7 @@
 # Import the webbrowser module.
 import webbrowser
 
-f = open('helloworld.html', 'w')
+f = open("helloworld.html", "w")
 
 message = """<!DOCTYPE html>
 <html>
@@ -27,5 +27,5 @@ f.write(message)
 f.close()
 
 # Open the html file by specifying its location and name.
-filename = 'file:///Users/aleksandar.yakimov/git/python/scripts/' + 'helloworld.html'
+filename = "file:///Users/aleksandar.yakimov/git/python/scripts/" + "helloworld.html"
 webbrowser.open_new_tab(filename)

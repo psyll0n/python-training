@@ -1,5 +1,4 @@
 class Animal:
-
     def __init__(self, name, weight):
         self.name = name
         self.weight = weight
@@ -7,17 +6,18 @@ class Animal:
     def speak(self):
         print("What does the animal say?")
 
-class Cat(Animal):
 
+class Cat(Animal):
     def speak(self):
-        print('Meooowww!')
+        print("Meooowww!")
+
 
 henry = Cat("Henry", "9 lbs")
 print(type(henry))
 henry.speak()
 
-class Dog(Animal):
 
+class Dog(Animal):
     def speak(self):
         print("Woof Woof!")
 
@@ -25,4 +25,3 @@ class Dog(Animal):
 veto = Dog("Veto", "20 lbs")
 print(type(veto))
 veto.speak()
-
