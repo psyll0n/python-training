@@ -1,5 +1,3 @@
-
-
 # Make a class named X that is-a Y."
 class X(Y)
 class X(object):
