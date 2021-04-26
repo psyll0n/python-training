@@ -7,3 +7,4 @@ _linux
 .DS_Store
 class_syntax_explanation.py
 class_syntax_explanation2.py
+.vscode/
