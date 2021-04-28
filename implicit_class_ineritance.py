@@ -1,5 +1,4 @@
 class Parent(object):
-
     def implicit(self):
         print("PARENT implcit()")
 
@@ -13,6 +12,3 @@ son = Child()
 
 dad.implicit()
 son.implicit()
-
-
-

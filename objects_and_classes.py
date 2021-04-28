@@ -1,26 +1,25 @@
 class Animal(object):
     pass
 
+
 ##??
 
+
 class Dog(Animal):
-
-    def __init__(self, name):
-         ##??
-          self.name = name
-
-
-## ??
-class Cat(Animal):
-
-
     def __init__(self, name):
         ##??
         self.name = name
 
+
+## ??
+class Cat(Animal):
+    def __init__(self, name):
+        ##??
+        self.name = name
+
+
 ## ??
 class Person(object):
-
     def __init__(self, name):
         ##??
         self.name = name
@@ -28,26 +27,30 @@ class Person(object):
         ## Person has a pet of some kind.
         self.pet = None
 
+
 ## ??
 class Employee(Person):
-
     def __init__(self, name, salary):
         ##??
         super(Employee, self).__init__(name)
         ##??
         self.salary = salary
 
+
 ##??
 class Fish(object):
     pass
+
 
 ##??
 class Salmon(Fish):
     pass
 
+
 ##??
 class Hallibut(Fish):
     pass
+
 
 ##?? rover is-a Dog
 rover = Dog("Rover")
@@ -75,26 +78,3 @@ crouse = Salmon()
 
 ##??
 harry = Hallibut()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
