@@ -3,8 +3,8 @@ class Parent(object):
         print("PARENT altered()")
 
 
-"""On the lines below, "super(Child, self).altered()" is used, which is aware of inheritance and will get the Parent class.
-this should be read this as “call super with arguments Child and self, then call the function altered on whatever it returns.” """
+"""On the lines below, "super(Child, self).altered()" is used, which is aware of the inheritance and will get the Parent class.
+this should be read as “call super with arguments Child and self, then call the function altered on whatever it returns.” """
 
 
 class Child(Parent):
