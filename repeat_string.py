@@ -3,8 +3,9 @@
 x = int(input("Enter a number: "))
 string = input("Enter a string: ")
 
+
 def repeatStr(string):
-    return(string * x)
+    return string * x
 
 
 print(repeatStr(string))

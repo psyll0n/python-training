@@ -7,7 +7,7 @@ Simple command-line tool using sys.argv
 try:
     import sys
 
-    if __name__ == '__main__':
+    if __name__ == "__main__":
         print(f"The first argument: '{sys.argv[0]}'")
         print(f"The second argument: '{sys.argv[1]}'")
         print(f"The third argument: '{sys.argv[2]}'")

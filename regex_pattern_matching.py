@@ -19,10 +19,9 @@ Call the Match object’s group() method to return a string of the actual
 matched text."""
 
 
-
-phoneNumRegex = re.compile(r'(\d{3})-?(\d{3})-(\d{4})')
-matchedObject = phoneNumRegex.search('My number is 415-555-1011.')
-print('Phone number found: ' + matchedObject.group())
+phoneNumRegex = re.compile(r"(\d{3})-?(\d{3})-(\d{4})")
+matchedObject = phoneNumRegex.search("My number is 415-555-1011.")
+print("Phone number found: " + matchedObject.group())
 
 # Matched objext groups can be separated with '()' and printed out as shown below.
 print(matchedObject.group())

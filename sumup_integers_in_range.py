@@ -4,8 +4,9 @@
 a = int(input("Enter a number for a: "))
 b = int(input("Enter a number for b: "))
 
-def get_sum(a,b):
+
+def get_sum(a, b):
     return sum(range(min(a, b), max(a, b) + 1))
-    
+
 
 print(get_sum(a, b))

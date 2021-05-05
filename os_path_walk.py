@@ -18,7 +18,7 @@ def walk_path(parent_path):
     # Construct the full path of an item in the parent directory.
     for child in childs:
         child_path = os.path.join(parent_path, child)
-        
+
     # Check to see if the path represents a file.
     if os.path.isfile(child_path):
         size = os.path.getsize(child_path)
@@ -34,9 +34,5 @@ def walk_path(parent_path):
         walk_path(child_path)
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     fire.Fire()
-    
-    
-    

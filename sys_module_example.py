@@ -5,7 +5,6 @@ import sys
 print("This script checks what version of Python is running on your system.")
 
 
-
 # Check python version with the 'sys' module.
 if sys.version_info.major < 3:
     print("You need to update your Python version.")
