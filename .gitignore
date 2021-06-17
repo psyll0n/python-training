@@ -1,0 +1,11 @@
+python-master
+__pycache__
+_linux
+*.xml
+*.txt
+*.html
+.DS_Store
+class_syntax_explanation.py
+class_syntax_explanation2.py
+.vscode/
+*.xlsx
