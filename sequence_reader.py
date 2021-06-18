@@ -17,5 +17,5 @@ def main(filename):
     print(series)
     
 if __name__ == "__main__":
-    main(filename)    
+    read_series()  
     
