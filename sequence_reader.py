@@ -16,6 +16,6 @@ def main(filename):
     series = read_series(filename)
     print(series)
     
-if __name__ == '__main__':
-    main()    
+if __name__ == "__main__":
+    main(filename)    
     
