@@ -6,11 +6,8 @@ import sys
 
 
 def read_series(filename):
-    try:
-        with open(filename, mode='rt', encoding='utf-8') as f:
-            return [int(line.strip()) for line in f]
-    finally:
-        f.close
+    with open(filename, mode='rt', encoding='utf-8') as f:
+        return [int(line.strip()) for line in f]
         
         
 def main(filename):
