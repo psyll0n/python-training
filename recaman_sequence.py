@@ -2,7 +2,7 @@
 # recaman_sequence.py - generates a sequence of integers that do not repeat. 
 
 import sys
-from  import count, islice
+from itertools import count, islice
 
 
 def sequence():
