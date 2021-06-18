@@ -16,5 +16,5 @@ def main(filename):
     
     
 if __name__ == "__main__":
-    read_series('racaman.dat') 
+    read_series('recaman.dat') 
     
