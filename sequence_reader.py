@@ -12,7 +12,7 @@ def read_series(filename):
             series.append(a)
     finally:
         f.close
-        return series
+    return series
 
         
 def main(filename):
