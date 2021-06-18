@@ -16,3 +16,16 @@ def sequence():
         if c < 0 or c in seen:
             c = a + n
         a = c
+        
+
+def write_sequence(filename, num):
+    """Write Recaman's sequence to a text file."""
+    f = open(filename, mode='wt', encoding='utf-8')
+    f.writelines(f"{r}\n"
+                 for r in islice(sequence(), num + 1))
+    f.close
+    
+    
+if __name__ == '__main__':
+    write_sequence(filename=sys.argv[1],
+                   num=int(sys.argv[2]))
