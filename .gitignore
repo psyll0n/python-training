@@ -10,3 +10,5 @@ class_syntax_explanation2.py
 .vscode/
 *.xlsx
 *.dat
+*.tsv
+*.csv
