@@ -1,5 +1,4 @@
-
-#! python3 
+#! python3
 # collections: Counter, namedtuple, OrderedDictionary, defaultdict, dequeue
 
 from collections import deque

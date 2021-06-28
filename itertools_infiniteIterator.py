@@ -7,7 +7,7 @@ for i in count(10):
     print(i)
     if i == 10000:
         break
-    
+
 
 a = [1, 2, 3, 4, 5]
 for i in cycle(a):
