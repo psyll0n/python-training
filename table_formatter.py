@@ -12,13 +12,40 @@ def print_table(objects, colnames, formatter):
     for obj in objects:
         rowdata = [ str(getattr(obj, colname)) for colname in colnames ]
         formatter.row(rowdata)
-    
-    
+
+
+class TablePrinter(object):
+    def __init__(self, formatter):
+        self.formatter = formatter
+        
+    def print_table(self, objects, colnames):
+        '''
+        Make a nicely formatted table showing attributes from a list of objects.
+        '''
+        self.formatter.headings(colnames)
+        for obj in objects:
+            rowdata = [ str(getattr(obj, colname)) for colname in colnames ]
+            self.formatter.row(rowdata)
+
+
+# Parent class
 class TableFormatter(object):
     def __init__(self, outfile=None):
         if outfile == None:
             outfile = sys.stdout
         self.outfile = outfile
+        
+        
+    
+    def print_table(self, objects, colnames):
+        '''
+        Make a nicely formatted table showing attributes from a list of objects.
+        '''
+        self.headings(colnames)
+        for obj in objects:
+            rowdata = [ str(getattr(obj, colname)) for colname in colnames ]
+            self.row(rowdata)
+        
     # Serves as a design spec for making tables (use inheritance to customize).
     def headings(self, headers):
         raise NotImplementedError
@@ -63,8 +90,8 @@ class HTMLTableFormatter(TableFormatter):
         for d in rowdata: 
             print('<td>{}</td>'.format(d), end=' ')
         print('</tr>')
-        
-
+                
+                
 class QuotedMixin(object):
     def row(self, rowdata):
         quoted = [ '"{}"'.format(d) for d in rowdata ]
