@@ -2,12 +2,16 @@
 # table_formatter.py - Demonstrates the concept of inheritance in Python.
 
 import sys
+from abc import ABC, abstractmethod
 
 
 def print_table(objects, colnames, formatter):
     '''
     Make a nicely formatted table showing attributes from a list of objects.
     '''
+    if not isinstance(formatter, TableFormatter):
+        raise TypeError('Expected a TableFormatter')
+    
     formatter.headings(colnames)
     for obj in objects:
         rowdata = [ str(getattr(obj, colname)) for colname in colnames ]
@@ -29,13 +33,11 @@ class TablePrinter(object):
 
 
 # Parent class
-class TableFormatter(object):
+class TableFormatter(ABC):
     def __init__(self, outfile=None):
         if outfile == None:
             outfile = sys.stdout
-        self.outfile = outfile
-        
-        
+        self.outfile = outfile    
     
     def print_table(self, objects, colnames):
         '''
@@ -47,12 +49,13 @@ class TableFormatter(object):
             self.row(rowdata)
         
     # Serves as a design spec for making tables (use inheritance to customize).
+    @abstractmethod
     def headings(self, headers):
-        raise NotImplementedError
-    
+        pass
+        
+    @abstractmethod
     def row(self, rowdata):
-        raise NotImplementedError
-
+        pass
 
 class TextTableFormatter(TableFormatter):
     def __init__(self, outfile=None, width=10):
@@ -70,14 +73,14 @@ class TextTableFormatter(TableFormatter):
         print(file = self.outfile)
 
 
-class CSVTableFormatter(TableFormatter):
+class CSVTableFormatter(object):
     def headings(self, headers):
         print(','.join(headers))
         
     def row(self, rowdata):
         print(','.join(rowdata))
 
-     
+
 class HTMLTableFormatter(TableFormatter):
     def headings(self, headers):
         print('<tr>', end='')
@@ -88,9 +91,9 @@ class HTMLTableFormatter(TableFormatter):
     def row(self, row):
         print('<tr>', end='')
         for d in rowdata: 
+
             print('<td>{}</td>'.format(d), end=' ')
         print('</tr>')
-                
                 
 class QuotedMixin(object):
     def row(self, rowdata):
