@@ -8,31 +8,32 @@ import time
 def add(x, y):
     # Low order function.
     def do_add():
-        print("Adding {} + {} ->".format(x, y, x+y))
-        return x+y
+        print("Adding {} + {} ->".format(x, y, x + y))
+        return x + y
+
     return do_add
 
 
-a = add(2,3)
+a = add(2, 3)
 
 print(type(a))
 
 a()
 
-b = add('hello', 'world')
+b = add("hello", "world")
 
 b()
+
 
 def after(seconds, func):
     time.sleep(seconds)
     func()
 
+
 def hello():
-    print('Hello, World!')    
-    
+    print("Hello, World!")
+
 
 after(5, hello)
 
 after(3, add(5, 10))
-
-
