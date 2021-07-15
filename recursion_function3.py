@@ -4,7 +4,7 @@
 # Using recursion to implement power and factorial functions.
 
 def power(num, power):
-    if pwe == 0:
+    if power == 0:
         return 1
     else:
         return num * power(num, power - 1)
