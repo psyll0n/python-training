@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # queue_example.py
 
-# Try out Python Queue functions. 
+# Try out Python Queue functions.
 from collections import deque
 
 # TODO: Create a new empty deque object.
@@ -20,4 +20,3 @@ print(queue)
 x = queue.popleft()
 print(x)
 print(queue)
-

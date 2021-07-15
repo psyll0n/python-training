@@ -1,8 +1,8 @@
 #!/bin/env/python3
 # hashtable_example.py
 
-# Demonstrate the hash table / dictionary data structure. 
-items1 = {'key1':'1', 'key2':'2', 'key3':'three'}
+# Demonstrate the hash table / dictionary data structure.
+items1 = {"key1": "1", "key2": "2", "key3": "three"}
 print(items1)
 
 # TODO: Create a hash table / dictionary progressively.
@@ -22,7 +22,3 @@ print(items2)
 # TODO: Iterate over the keys and values in a hash table / dictionary.
 for key, value in items1.items():
     print("Key: ", key, " Value: ", value)
-
-
-
-
