@@ -2,7 +2,7 @@
 # csv_manipulation_template.py - Reads a CSV file and performs manipulation of the data in it.
 # Use with csv_filereader.py
 
-from . import csv_reader # Package-relative import
+from . import csv_reader  # Package-relative import
 from os import error
 
 
@@ -12,7 +12,8 @@ def read_portfolio(filename, *, errors="warn"):
     """
     return csv_reader.read_csv(filename, [str, str, int, float], errors=errors)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     portfolio = read_portfolio("Data/portfolio.csv")
 
     total = 0.0
