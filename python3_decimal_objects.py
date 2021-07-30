@@ -7,17 +7,17 @@ from decimal import Decimal
 
 amount = 112.31
 
-print(f'{amount:.20f}')
+print(f"{amount:.20f}")
 
 
-principal = Decimal('1000.00')
+principal = Decimal("1000.00")
 print(type(principal))
 
-rate = Decimal('0.05')
+rate = Decimal("0.05")
 print(type(rate))
 
-x = Decimal('10.5')
-y = Decimal('2')
+x = Decimal("10.5")
+y = Decimal("2")
 
 print(x // y)
 print(x + y)
@@ -25,4 +25,4 @@ print(x + y)
 
 for year in range(1, 11):
     amount = principal * (1 + rate) ** year
-    print(f'{year:>2}{amount:>10.2f}')
+    print(f"{year:>2}{amount:>10.2f}")
