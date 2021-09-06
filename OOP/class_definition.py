@@ -1,25 +1,53 @@
-#!/usr/bin/env python3
+# Class definition
+class Car:
+    # Class Attributes / Variables
+    tires = 4
 
-# Python Object Oriented Programming by Joe Marini.
-# Basic class definition - Lesson 1.
+    # Class Constructor / Initializer (Method with a special name)
+    def __init__(self, make, model, year, color, moon_roof=False):
+        # Object Attributes / Variables
+        self.make = make
+        self.model = model
+        self.year = year
+        self.color = color
+        self.moon_roof = moon_roof
+        self.engine_running = False
 
-# TODO: Create a basic class.
-class Book:
-    # the __init__ function is called when an instance 
-    # is created and ready to be initialized.
-    def __init__(self, title):
-        self.title = title
-        
-        
-# TODO: Create instances of the class.
-b1 = Book("The Grapes of Wrath")
-b2 = Book("The Great Gatsby")
-b3 = Book("Brave New World")
-b4 = Book("War and Peace")
-        
-        
-# TODO: Print the class and property.
-print(b1)
-print(b1.title)
+    # Methods
+    def start_the_engine(self):
+        self.engine_running = True
+
+    def stop_the_engine(self):
+        self.engine_running = False
 
 
+def main():
+    print("Hello from the main() method!")
+    car1 = Car("Ford", "Mustang", "2010", "Blue")
+    car2 = Car("Tesla", "Model 3", "2020", "Red", True)
+
+    # Accessing car1 attributes:
+    print("Printing car1 details:".center(50, "-"))
+    print("Make:  {}".format(car1.make))
+    print("Model: {}".format(car1.model))
+    print("Year:  {}".format(car1.year))
+    print("Color: {}".format(car1.color))
+    print("Moon Roof: {}".format(car1.moon_roof))
+
+    # Accessing car2 attributes:
+    print("Printing car2 details:".center(50, "-"))
+    print("Make:  {}".format(car2.make))
+    print("Model: {}".format(car2.model))
+    print("Year:  {}".format(car2.year))
+    print("Color: {}".format(car2.color))
+    print("Moon Roof: {}".format(car2.moon_roof))
+
+    # Accessing class attributes:
+    print("Class Attributes:".center(50, "-"))
+    print("car1: ", car1.tires)
+    print("car2: ", car1.tires)
+    print("Car: ", Car.tires)
+
+
+if __name__ == "__main__":
+    main()
