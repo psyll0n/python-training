@@ -12,3 +12,4 @@ class_syntax_explanation2.py
 *.dat
 *.tsv
 *.csv
+*.log
