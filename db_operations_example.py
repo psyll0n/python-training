@@ -4,7 +4,8 @@
 
 import sqlite3
 
-__version__ = '1.2.0'
+__version__ = "1.2.0"
+
 
 class bwDB:
     def __init__(self, **kwargs):
@@ -15,8 +16,8 @@ class bwDB:
                 filename is for connecting to the database file
         """
         # see filename @property decorators below
-        self._filename = kwargs.get('filename')
-        self._table = kwargs.get('table', '')
+        self._filename = kwargs.get("filename")
+        self._table = kwargs.get("table", "")
 
     def set_table(self, tablename):
         self._table = tablename
@@ -85,7 +86,7 @@ class bwDB:
             db.getrec(recid)
             get a single row, by id
         """
-        query = f'SELECT * FROM {self._table} WHERE id = ?'
+        query = f"SELECT * FROM {self._table} WHERE id = ?"
         c = self._db.execute(query, (recid,))
         return c.fetchone()
 
@@ -94,7 +95,7 @@ class bwDB:
             db.getrecs()
             get all rows, returns a generator of Row factories
         """
-        query = f'SELECT * FROM {self._table}'
+        query = f"SELECT * FROM {self._table}"
         c = self._db.execute(query)
         for r in c:
             yield r
@@ -108,10 +109,8 @@ class bwDB:
         """
         klist = sorted(rec.keys())
         values = [rec[v] for v in klist]  # a list of values ordered by key
-        q = 'INSERT INTO {} ({}) VALUES ({})'.format(
-            self._table,
-            ', '.join(klist),
-            ', '.join('?' * len(values))
+        q = "INSERT INTO {} ({}) VALUES ({})".format(
+            self._table, ", ".join(klist), ", ".join("?" * len(values))
         )
         c = self._db.execute(q, values)
         return c.lastrowid
@@ -132,13 +131,12 @@ class bwDB:
         values = [rec[v] for v in klist]  # a list of values ordered by key
 
         for i, k in enumerate(klist):  # don't udpate id
-            if k == 'id':
+            if k == "id":
                 del klist[i]
                 del values[i]
 
-        q = 'UPDATE {} SET {} WHERE id = ?'.format(
-            self._table,
-            ',  '.join(map(lambda s: '{} = ?'.format(s), klist))
+        q = "UPDATE {} SET {} WHERE id = ?".format(
+            self._table, ",  ".join(map(lambda s: "{} = ?".format(s), klist))
         )
         self._db.execute(q, values + [recid])
 
@@ -151,7 +149,7 @@ class bwDB:
             db.delete(recid)
             delete a row from the table, by recid
         """
-        query = f'DELETE FROM {self._table} WHERE id = ?'
+        query = f"DELETE FROM {self._table} WHERE id = ?"
         self._db.execute(query, [recid])
 
     def delete(self, recid):
@@ -164,7 +162,7 @@ class bwDB:
             count the records in the table
             returns a single integer value
         """
-        query = f'SELECT COUNT(*) FROM {self._table}'
+        query = f"SELECT COUNT(*) FROM {self._table}"
         c = self._db.execute(query)
         return c.fetchone()[0]
 
@@ -189,56 +187,58 @@ class bwDB:
 
 
 def test():
-    fn = ':memory:'  # in-memory database
-    t = 'foo'
+    fn = ":memory:"  # in-memory database
+    t = "foo"
 
     recs = [
-        dict(string='one', number=42),
-        dict(string='two', number=73),
-        dict(string='three', number=123)
+        dict(string="one", number=42),
+        dict(string="two", number=73),
+        dict(string="three", number=123),
     ]
 
     # -- for file-based database
     # try: os.stat(fn)
     # except: pass
-    # else: 
+    # else:
     #     print('Delete', fn)
     #     os.unlink(fn)
 
-    print('bwDB version', __version__)
+    print("bwDB version", __version__)
 
-    print(f'Create database file {fn} ...', end='')
+    print(f"Create database file {fn} ...", end="")
     db = bwDB(filename=fn, table=t)
-    print('Done.')
+    print("Done.")
 
-    print('Create table ... ', end='')
-    db.sql_do(f' DROP TABLE IF EXISTS {t} ')
-    db.sql_do(f' CREATE TABLE {t} ( id INTEGER PRIMARY KEY, string TEXT, number INTEGER ) ')
-    print('Done.')
+    print("Create table ... ", end="")
+    db.sql_do(f" DROP TABLE IF EXISTS {t} ")
+    db.sql_do(
+        f" CREATE TABLE {t} ( id INTEGER PRIMARY KEY, string TEXT, number INTEGER ) "
+    )
+    print("Done.")
 
-    print('Insert into table ... ', end='')
+    print("Insert into table ... ", end="")
     for r in recs:
         db.insert(r)
-    print('Done.')
+    print("Done.")
 
-    print(f'There are {db.countrecs()} rows')
+    print(f"There are {db.countrecs()} rows")
 
-    print('Read from table')
+    print("Read from table")
     for r in db.getrecs():
         print(dict(r))
 
-    print('Update table')
-    db.update(2, dict(string='TWO'))
+    print("Update table")
+    db.update(2, dict(string="TWO"))
     print(dict(db.getrec(2)))
 
-    print('Insert an extra row ... ', end='')
-    newid = db.insert({'string': 'extra', 'number': 512})
-    print(f'(id is {newid})')
+    print("Insert an extra row ... ", end="")
+    newid = db.insert({"string": "extra", "number": 512})
+    print(f"(id is {newid})")
     print(dict(db.getrec(newid)))
-    print(f'There are {db.countrecs()} rows')
-    print('Now delete it')
+    print(f"There are {db.countrecs()} rows")
+    print("Now delete it")
     db.delete(newid)
-    print(f'There are {db.countrecs()} rows')
+    print(f"There are {db.countrecs()} rows")
     for r in db.getrecs():
         print(dict(r))
     for r in db.sql_query(f"select * from {t}"):
@@ -246,4 +246,5 @@ def test():
     db.close()
 
 
-if __name__ == "__main__": test()
+if __name__ == "__main__":
+    test()

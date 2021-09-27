@@ -1,18 +1,18 @@
 #!/urs/bin/env python3
-# Using cryptographically-appropriate methods to generate random data 
+# Using cryptographically-appropriate methods to generate random data
 # that may be sensitive. The secrets module is available in Python 3.6+
 
 import os
 import secrets
 
 
-# TODO: The urandom() in the OS module produces random numbers that are 
+# TODO: The urandom() in the OS module produces random numbers that are
 # cryprographically-secure to use for sensitive data.
 result = os.urandom(16)
 # print([hex(b) for b in result])
 
 # TODO: secrets.choice() is a function similat to random.choice() but more secure.
-moves = ['rock', 'paper', 'scissors']
+moves = ["rock", "paper", "scissors"]
 # print(secrets.choice(moves))
 
 # TODO: secrets.token_bytes() is a function that returns a random byte string.

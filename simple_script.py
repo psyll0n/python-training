@@ -2,17 +2,18 @@
 # .py
 
 
-x = 42 
+x = 42
+
 
 def spam():
-    print('x is', x)
+    print("x is", x)
 
 
 def run():
-    print('Calling spam)
+    print("Calling spam")
     spam()
 
 
-if __name__ == '__main__':
-    print('Running...')
+if __name__ == "__main__":
+    print("Running...")
     run()

@@ -9,9 +9,9 @@ import random
 # print(random.random())
 # print(random.random())
 
-# TODO: Implement a coin toss function. 
+# TODO: Implement a coin toss function.
 for i in range(10):
-    if (random.random() <= 0.5):
+    if random.random() <= 0.5:
         print("Heads")
     else:
         print("Tails")
@@ -35,4 +35,3 @@ print("---------------")
 random.seed(1)
 print(random.random())
 print(random.random())
-

@@ -7,12 +7,14 @@ from functools import wraps
 # over the function name, docstring, arguments list, etc. This allows us to access the
 # pre-decorated function’s properties in the decorator.
 
+
 def decorator_name(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         if not can_run:
             return "Function will not run"
         return f(*args, **kwargs)
+
     return decorated
 
 
@@ -20,11 +22,11 @@ def decorator_name(f):
 def func():
     """Function Docstring"""
     print("Function is running.")
-    
+
+
 can_run = True
 print(func())
 
 
 can_run = False
-print (func())
-
+print(func())
