@@ -6,7 +6,6 @@ Command-line tool using argparse.
 
 import argparse
 
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Echo your input")
     parser.add_argument("message", help="Message to echo")
