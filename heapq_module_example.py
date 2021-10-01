@@ -1,16 +1,14 @@
 # heapq_module_example.py - Make a list of the largest or smallest N items in a collection.
 
-#! python3
+#!/usr/bin/env python3
 
 import heapq
 
 
 nums = [1, 8, 2, 23, 7, -4, 18, 23, 42, 37, 2]
-<<<<<<< HEAD
+
 print(heapq.nlargest(3, nums))  # Prints [42, 37, 23]
 print(heapq.nsmallest(3, nums))  # Prints [-4, 1, 2]
-=======
-<<<<<<< HEAD
 print(heapq.nlargest(3, nums))  # Prints [42, 37, 23]
 print(heapq.nsmallest(3, nums))  # Prints [-4, 1, 2]
 
@@ -29,10 +27,8 @@ expensive = heapq.nlargest(3, portfolio, key=lambda s: s["price"])
 
 print(cheap)
 print(expensive)
-=======
-print(heapq.nlargest(3, nums)) # Prints [42, 37, 23]
-print(heapq.nsmallest(3, nums)) # Prints [-4, 1, 2]
->>>>>>> 51f83aa0df79342ce37a1dae69bfcd0ce4286810
+print(heapq.nlargest(3, nums))  # Prints [42, 37, 23]
+print(heapq.nsmallest(3, nums))  # Prints [-4, 1, 2]
 
 
 portfolio = [
@@ -49,7 +45,3 @@ expensive = heapq.nlargest(3, portfolio, key=lambda s: s["price"])
 
 print(cheap)
 print(expensive)
-<<<<<<< HEAD
-=======
->>>>>>> 2d31c822d90260ba29f5b99f048854f90daccf4c
->>>>>>> 51f83aa0df79342ce37a1dae69bfcd0ce4286810
