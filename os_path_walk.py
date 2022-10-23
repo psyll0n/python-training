@@ -15,6 +15,7 @@ def walk_path(parent_path):
             print(f"File: {file_path}")
             print(f"\tlast accessed: {last_access}")
             print(f"\tsize: {size}")
+
     # Construct the full path of an item in the parent directory.
     for child in childs:
         child_path = os.path.join(parent_path, child)
