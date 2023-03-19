@@ -25,4 +25,5 @@ elif tipPercentage == 12:
 else:
     sumToPay=(totalBill * 1.15)
     
-print("Each person should pay: $", round(sumToPay, 2))
+print("Each person should pay: $", ("%.2f" % round(sumToPay, 2)))
+
