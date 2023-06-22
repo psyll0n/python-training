@@ -92,7 +92,6 @@ class HTMLTableFormatter(TableFormatter):
     def row(self, row):
         print("<tr>", end="")
         for d in rowdata:
-
             print("<td>{}</td>".format(d), end=" ")
         print("</tr>")
 

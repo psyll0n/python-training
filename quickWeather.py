@@ -33,7 +33,6 @@ try:
     # "404", means city is found otherwise,
     # city is not found
     if x["cod"] != "404":
-
         # store the value of "main"
         # key in variable y
         y = x["main"]

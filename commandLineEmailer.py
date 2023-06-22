@@ -15,17 +15,14 @@ emailFrom = "...@......."
 password = "..."
 
 if len(sys.argv) > 1:
-
     emailTo = sys.argv[1]
 
     # passes all arguments past address as the message
 
     if len(sys.argv) > 2:
-
         messageText = " ".join(sys.argv[2:])
 
     else:
-
         messageText = sys.argv[2]
 
     subject = "You have a new message from " + emailFrom
@@ -71,7 +68,6 @@ if len(sys.argv) > 1:
     sendElem.send_keys(Keys.ENTER)
 
 else:
-
     print(
         "Include who you want to send to, " + "followed by a message in the argument."
     )

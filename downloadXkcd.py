@@ -15,7 +15,6 @@ url = "http://xkcd.com"  # starting URL
 os.makedirs("xkcd", exist_ok=True)  # store comics in ./xkcd
 
 while not url.endswith("#"):
-
     # Download the image.
     print("Downloading page %s..." % url)
     res = requests.get(url)

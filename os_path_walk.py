@@ -3,6 +3,7 @@
 import fire
 import os
 
+
 # os.listdir returns the contents of a directory.
 def walk_path(parent_path):
     for parent_path, directories, files in os.walk(parent_path):

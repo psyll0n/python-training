@@ -6,6 +6,7 @@ from html.parser import HTMLParser
 
 metacount = 0
 
+
 # Define a class that will handle various parts of an HTML file.
 # Create a subclass of HTMLParser and override the handle_starttag() method.
 class MyHTMLParser(HTMLParser):

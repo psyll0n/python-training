@@ -17,7 +17,7 @@ def new_func(num):
     else:
         num = num - 4
 
-    return num ** 2
+    return num**2
 
 
 nums

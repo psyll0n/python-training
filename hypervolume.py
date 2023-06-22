@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # A simple function that calculates the area / volume of triangles, cuboids, hypercuboids
 
+
 def hypervolume(length, *lengths):
     v = length
     for item in lengths:
         v *= item
     return v
+
 
 # calculate the area of a rectangle
 hypervolume(2, 4)

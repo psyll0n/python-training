@@ -38,12 +38,12 @@ class Flight:
 
     def allocate_seat(self, seat, passenger):
         """Allocate seat to a passenger.
-        
+
         Args:
             seat: A seat designtor such as '12C' or '21F'.
             passenger: The passenger name.
-            
-        Raises: 
+
+        Raises:
             ValueError: If the seat is unavailable.
         """
 
@@ -77,7 +77,7 @@ class Flight:
 
         Args:
             from_seat: The existing seat designator for the
-                            passenger to be moved. 
+                            passenger to be moved.
             to_seat: The new seat designator.
 
         Returns:

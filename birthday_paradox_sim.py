@@ -20,7 +20,7 @@ def getBirthdays(numberOfBirthdays):
 
 
 def getMatch(birthdays):
-    """Returns the date object of a data that occurs more than once in the 
+    """Returns the date object of a data that occurs more than once in the
     birthdays list."""
     if (len(birthdays)) == len(set(birthdays)):
         return None  # All birthdays are unique, so return None.

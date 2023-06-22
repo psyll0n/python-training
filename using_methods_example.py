@@ -1,5 +1,4 @@
 class My_Calc:
-
     # Class constructor / Initializer (Method with a special name)
     def __init__(self, num1, num2):
         # Object attributes/Variables

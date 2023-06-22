@@ -31,9 +31,9 @@ soup = bs4.BeautifulSoup(res.text, "html.parser")
 
 
 # Get all of the 'a' tags after an element with the class 'kCrYT' (which are the results)
-linkElems = soup.select(".kCrYT > a")
+linkElements = soup.select(".kCrYT > a")
 
 # Open a browser tab for each result.
-numOpen = min(5, len(linkElems))
+numOpen = min(5, len(linkElements))
 for i in range(numOpen):
-    webbrowser.open_new_tab("http://google.com" + linkElems[i].get("href"))
+    webbrowser.open_new_tab("http://google.com" + linkElements[i].get("href"))
