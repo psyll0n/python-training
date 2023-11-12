@@ -13,7 +13,7 @@ favorite = input("Favorite: ")
 rows = db.execute(
     "SELECT COUNT(*) FROM favorites WHERE problem LIKE ?", "%" + favorite + "%")
 
-# Get first (and only) rowpretty sqlite columns zsh
+# Get first (and only) row...
 row = rows[0]
 
 # Print popularity
