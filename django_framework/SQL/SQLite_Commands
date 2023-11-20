@@ -1,0 +1,79 @@
+/* Create a flights database table */
+CREATE TABLE flights (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    origin TEXT NOT NULL,
+    destination TEXT NOT NULL,
+    duration INTEGER NOT NULL
+);
+
+
+/* Insert data into the flights database table */
+INSERT INTO flights
+    (origin,destination,duration)
+    VALUES ("New York", "London", 415);
+
+INSERT INTO flights
+    (origin,destination,duration)
+    VALUES ("Istanbul", "Tokyo", 700);
+
+INSERT INTO flights
+    (origin,destination,duration)
+    VALUES ("New York", "Paris", 435);
+
+INSERT INTO flights
+    (origin,destination,duration)
+    VALUES ("Moscow", "Paris", 245);
+
+INSERT INTO flights
+    (origin,destination,duration)
+    VALUES ("Lima", "New York", 455);
+
+INSERT INTO flights
+    (origin,destination,duration)
+    VALUES ("Shanghai", "Paris", 760);
+
+
+/* Select data from the flights database table. */
+SELECT * FROM flights;
+
+/* Select only the origin and destination data. */
+SELECT origin,destination FROM flights;
+
+/* Select only the flight that has specific ID. */
+SELECT * FROM flights WHERE id = 3;
+
+/* Select only the flight with specific origin. */
+SELECT * FROM flights WHERE origin = "New York";
+
+// Select only the entries in the flight table that match a specific wildcard pattern.
+SELECT * FROM flights WHERE origin LIKE "%a%";
+
+
+/* Update a specific flight database entry */
+UPDATE flights 
+    SET duration = 430
+    WHERE origin = "New York"
+    AND destination = "London";
+    
+
+/* Delete a specific flight database entry */ 
+DELETE FROM flights WHERE destination = "Tokyo";
+
+
+/* Other SQL clauses are:
+
+* LIMIT
+
+SELECT * FROM flights LIMIT 1;
+
+* ORDER BY
+
+SELECT * FROM flights ORDER BY duration;
+
+* GROUP BY
+
+SELECT * FROM flights GROUP BY origin;
+
+* HAVING
+
+*/
