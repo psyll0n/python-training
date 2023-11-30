@@ -9,7 +9,7 @@ def index(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse("login"))
     return render(request, "users/user.html")
-    
+
 
 def login_view(request):
     if request.method == "POST":
@@ -20,15 +20,13 @@ def login_view(request):
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
         else:
-            return render(request, "users/login.html", {
-                "message": "Invalid username or password"
-            })
-                                                        
+            return render(
+                request, "users/login.html", {"message": "Invalid username or password"}
+            )
+
     return render(request, "users/login.html")
 
 
 def logout_view(request):
     logout(request)
-    return render(request, "users/login.html", {
-        "message": "You have been logged out"              
-    })
+    return render(request, "users/login.html", {"message": "You have been logged out"})

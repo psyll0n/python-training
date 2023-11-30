@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # Python Object Oriented Programming by Joe Marini.
 # Python Data Classes. Available in version 3.7 and above.
-# The __post_init__ function. 
+# The __post_init__ function.
 
 from dataclasses import dataclass
+
 
 @dataclass
 class Book:
@@ -11,8 +12,8 @@ class Book:
     author: str
     pages: int
     price: float
-    
-    # TODO: The __post_init__ function allows us to customize 
+
+    # TODO: The __post_init__ function allows us to customize
     # additional properties after the object has been created.
     def __post_init__(self):
         self.description = f"{self.title} by {self.author}, {self.pages} pages"

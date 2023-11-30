@@ -5,11 +5,7 @@ app = Flask(__name__)
 
 db = SQL("sqlite:///flaskdb.db")
 
-SPORTS = [
-    "Basketball",
-    "Soccer",
-    "Ultimate Frisbee"
-]
+SPORTS = ["Basketball", "Soccer", "Ultimate Frisbee"]
 
 
 @app.route("/")
@@ -19,7 +15,6 @@ def index():
 
 @app.route("/deregister", methods=["POST"])
 def deregister():
-
     # Forget registrant
     id = request.form.get("id")
     if id:
@@ -29,7 +24,6 @@ def deregister():
 
 @app.route("/register", methods=["POST"])
 def register():
-
     # Validate submission
     name = request.form.get("name")
     sport = request.form.get("sport")

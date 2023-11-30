@@ -5,7 +5,6 @@ class MyClass:
     course = "Python for Everybody."
 
     def __init__(self, param1):
-
         # self.param1 here is similar to "param1 = 'Default value'
 
         self.param1 = param1

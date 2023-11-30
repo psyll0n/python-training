@@ -19,10 +19,7 @@ class Book:
     price: float = field(default_factory=price_func)
 
 
-
-    
 b1 = Book("The C Programming Language", "Brian W. Kernighan", 300)
 b2 = Book("The Unix Programming Environment", "Brian W. Kernighan", 380)
 print(b1)
 print(b2)
-    

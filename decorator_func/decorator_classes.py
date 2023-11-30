@@ -3,7 +3,6 @@
 
 
 class logit(object):
-
     _logfile = "out.log"
 
     def __init__(self, func):

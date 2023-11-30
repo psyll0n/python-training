@@ -2,6 +2,7 @@ import time
 
 n = int(input("Please, enter a number to start the countdown: "))
 
+
 # Sample function using a generator.
 def countdown(n):
     print("Starting to count down from", n, "...")

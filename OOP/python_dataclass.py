@@ -4,16 +4,17 @@
 
 from dataclasses import dataclass
 
+
 @dataclass
 class Book:
     title: str
     author: str
     pages: int
     price: float
-    
+
     def bookInfo(self):
-        return f'{self.title} by {self.author}, costs {self.price}'
-    
+        return f"{self.title} by {self.author}, costs {self.price}"
+
 
 # Create some instances of the Book class.
 b1 = Book("The C Programming Language", "Brian W. Kernighan", 300, 32.50)

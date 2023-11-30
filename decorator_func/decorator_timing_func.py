@@ -4,6 +4,7 @@
 from time import perf_counter
 from functools import wraps
 
+
 # Measuring time it takes to execute a function.
 def timer(func):
     @wraps(func)

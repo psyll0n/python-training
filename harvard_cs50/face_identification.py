@@ -19,14 +19,14 @@ for (top, right, bottom, left), face_encoding in zip(face_locations, face_encodi
 
     if True in matches:
         name = "Person Identified"
-        
+
         draw.rectangle(((left, top), (right, bottom)), outline=(0, 255, 0))
         draw.text((left, top - 10), name, fill=(0, 255, 0), font=None)
-    
-    else: 
+
+    else:
         name = "Unknown"
         draw.rectangle(((left, top), (right, bottom)), outline=(255, 255, 0))
         draw.text((left, top - 10), name, fill=(255, 255, 0), font=None)
-        
+
 
 pil_image.show()

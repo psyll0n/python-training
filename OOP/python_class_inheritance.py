@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 
+
 # Parent class
 class Parent(object):
     def __init__(self, value):

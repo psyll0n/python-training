@@ -12,8 +12,7 @@ import csv
 #     print(f"Number: {people[name]}")
 
 
-with open("phonebook.csv", 'a') as file:
-
+with open("phonebook.csv", "a") as file:
     name = input("Name: ")
     number = input("Number: ")
 

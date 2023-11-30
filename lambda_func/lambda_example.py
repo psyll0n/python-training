@@ -1,6 +1,6 @@
 # Lambda function examples
 
-square = lambda num: num ** 2
+square = lambda num: num**2
 
 print(type(square))
 

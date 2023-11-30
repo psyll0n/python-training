@@ -1,21 +1,20 @@
 #!/usr/bin/env python3
 # Python Object Oriented Programming by Joe Marini.
 # Python Data Classes. Available in version 3.7 and above.
-# Creating immutable data classes. 
+# Creating immutable data classes.
 
 from dataclasses import dataclass
 
 
 # TODO: The "frozen" parameter makes the class immutable.
-@dataclass(frozen = True) 
+@dataclass(frozen=True)
 class ImmutableClass:
     value1: str = "Value 1"
     value2: int = 0
-    
-    
+
     def someFunc(self, newval):
         self.value2 = newval
-    
+
 
 obj = ImmutableClass()
 print(obj.value1)
@@ -27,4 +26,3 @@ print(obj.value1)
 
 # TODO: Even functions within the class cannot change anything.
 obj.someFunc(20)
-

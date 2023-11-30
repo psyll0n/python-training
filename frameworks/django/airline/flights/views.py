@@ -6,9 +6,7 @@ from .models import Flight, Passenger
 
 # Create your views here.
 def index(request):
-    return render(request, "flights/index.html", {
-        "flights": Flight.objects.all()
-    })
+    return render(request, "flights/index.html", {"flights": Flight.objects.all()})
 
 
 def flight(request, flight_id):
@@ -17,11 +15,15 @@ def flight(request, flight_id):
     except Flight.DoesNotExist:
         raise Http404("Flight not found")
     flight = Flight.objects.get(pk=flight_id)
-    return render(request, "flights/flight.html", {
-        "flight": flight,
-        "passengers": flight.passengers.all(),
-        "non_passengers": Passenger.objects.exclude(flights=flight).all()
-    })
+    return render(
+        request,
+        "flights/flight.html",
+        {
+            "flight": flight,
+            "passengers": flight.passengers.all(),
+            "non_passengers": Passenger.objects.exclude(flights=flight).all(),
+        },
+    )
 
 
 def book(request, flight_id):
@@ -36,4 +38,4 @@ def book(request, flight_id):
         except Passenger.DoesNotExist:
             return HttpResponseBadRequest("Bad Request: passenger does not exist")
         passenger.flights.add(flight)
-        return HttpResponseRedirect(reverse("flight", args=(flight.id, )))
+        return HttpResponseRedirect(reverse("flight", args=(flight.id,)))

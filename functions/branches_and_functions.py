@@ -1,5 +1,6 @@
 from sys import exit
 
+
 # Defining a function gold_room. Asking for user input spcifying his next choice.
 def gold_room():
     print("This room is full of gold.  How much do you take?")

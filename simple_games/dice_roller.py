@@ -5,7 +5,6 @@ import random
 
 
 def main():
-
     # Define variables dice_rolls, dice_size and dice_sum.
 
     dice_rolls = int(input("How many dice would you like to roll? "))
