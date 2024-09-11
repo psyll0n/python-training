@@ -1,4 +1,4 @@
-#! python
+#! python3
 
 """
 Your program should print each number from 1 to 100 in turn and include number 100.
