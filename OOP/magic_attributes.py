@@ -16,7 +16,7 @@ class Book:
     def __str__(self):
         return f"{self.title} by {self.author}, costs {self.price}"
 
-    # TODO: __getattribute__ called when an attr is retrieved. Don't
+    #  __getattribute__ called when an attr is retrieved. Don't
     # directly access the attr name, otherwise a recursive loop is created.
     def __getattribute__(self, name):
         if name == "price":
@@ -25,7 +25,7 @@ class Book:
             return p - (p * d)
         return super().__getattribute__(name)
 
-    # TODO: __setattr__ called when an attr value is set. Don't set the value
+    #  __setattr__ called when an attr value is set. Don't set the value
     # directly, here, otherwise a recursive loop causes a crash.
     def __setattr__(self, name, value):
         if name == "price":
@@ -33,7 +33,7 @@ class Book:
                 raise ValueError("Price must be a float")
         return super().__setattr__(name, value)
 
-    # TODO: __getattr__ called when __getattribute__ lookup fails - you can
+    #  __getattr__ called when __getattribute__ lookup fails - you can
     # pretty much generate attributes on the fly with this method.
     def __getattr__(self, name):
         return f"{name} not found!"

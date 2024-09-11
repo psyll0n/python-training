@@ -1,6 +1,4 @@
-# simple_script
-# .py
-
+# simple_script.py
 
 x = 42
 

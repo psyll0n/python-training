@@ -25,10 +25,10 @@ items = [
     "orange",
 ]
 
-# TODO: Create a hash table to perform the filter operation.
+#  Create a hash table to perform the filter operation.
 counter = dict()
 
-# TODO: Iterate over each item and increment the count for each one.
+#  Iterate over each item and increment the count for each one.
 for item in items:
     if item in counter.keys():
         counter[item] += 1
@@ -36,5 +36,5 @@ for item in items:
         counter[item] = 1
 
 
-# TODO: Create a set from the resulting keys in the hash table.
+#  Create a set from the resulting keys in the hash table.
 print(counter)

@@ -11,11 +11,11 @@ class Book:
         self.author = author
         self.price = price
 
-    # TODO: Use the __str__ method to return a string.
+    # Use the __str__ method to return a string.
     def __str__(self):
         return f"{self.title} by {self.author}, costs {self.price}"
 
-    # TODO: Use the __repr__ method to return an object representation.
+    # Use the __repr__ method to return an object representation.
     def __repr__(self):
         return f"title={self.title}, author={self.author}, price={self.price}"
 

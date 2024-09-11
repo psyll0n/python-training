@@ -4,7 +4,7 @@
 import uuid
 
 
-# TODO: Use the uuid4 function to create a random sequence of characters using
+# Use the uuid4 function to create a random sequence of characters using
 # the underlying os.random() function.
 
 result = uuid.uuid4()
@@ -14,7 +14,7 @@ print(result.hex)
 print(result.urn)
 print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n")
 
-# TODO: Create a UUID using uuid5, which takes a namespace and name value..
+# Create a UUID using uuid5, which takes a namespace and name value..
 # Note that this version is not cryptogrpahically secure.
 
 result = uuid.uuid5(uuid.NAMESPACE_DNS, "python.org")

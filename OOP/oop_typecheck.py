@@ -21,18 +21,18 @@ n1 = Newspaper("The Washington Post")
 n2 = Newspaper("The New York Times")
 
 
-# TODO: Use type() to inspect the object types.
+# Use type() to inspect the object types.
 print(type(b1))
 print(type(b2))
 print(type(n1))
 print(type(n2))
 
-# TODO: Compare the types of the objects.
+# Compare the types of the objects.
 print(type(b1) == type(b2))
 print(type(b1) == type(n1))
 
 
-# TODO: Use isinstance() to compare a specific instance to a known type.
+# Use isinstance() to compare a specific instance to a known type.
 print(isinstance(b1, Book))
 print(isinstance(n1, Newspaper))
 print(isinstance(n2, Book))

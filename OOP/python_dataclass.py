@@ -25,13 +25,13 @@ b3 = Book("The C Programming Language", "Brian W. Kernighan", 300, 32.50)
 print(b1.title)
 print(b2.author)
 
-# TODO: Print the book itself - dataclasses implement __repr__.
+# Print the book itself - dataclasses implement __repr__.
 print(b1)
 
-# TODO: Comparing two dataclasses - they automatically implement __eq__.
+# Comparing two dataclasses - they automatically implement __eq__.
 print(b1 == b3)
 
-# TODO: Change some fields of the class.
+# Change some fields of the class.
 b1.title = "Anna Karenina"
 b1.author = "Leo Tolstoy"
 b1.pages = 864

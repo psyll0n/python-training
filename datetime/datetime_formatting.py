@@ -7,28 +7,28 @@ import datetime
 now = datetime.datetime.now()
 
 
-# TODO: Print various day and month formatting.
+# Print various day and month formatting.
 # print(now.strftime("%a, %A %w, %d"))
 # print(now.strftime("%b, %B %m"))
 
 
-# TODO: Print various time formatting.
+#  Print various time formatting.
 # print(now.strftime("%H, %I, %M %S, %p"))
 
-# TODO: Locale-specific formatting.
+#  Locale-specific formatting.
 # print(now.strftime("%c"))
 # print(now.strftime("%X"))
 
 
-# TODO: Short date format (m/d/y).
+#  Short date format (m/d/y).
 output = now.strftime("%m/%d/%y")
 
 
-# TODO: Long date format (Day, number, Month, Year).
+#  Long date format (Day, number, Month, Year).
 output = now.strftime("%A %d, %B %Y")
 print("today is: ", output)
 
 
-# TODO: Short date and time format (m/d/y, h:mm:ss AM/PM).
+#  Short date and time format (m/d/y, h:mm:ss AM/PM).
 output = now.strftime("%m/%d/%y %I:%M %p")
 print("today is: ", output)

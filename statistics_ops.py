@@ -10,16 +10,16 @@ import statistics
 sample_data1 = [1, 3, 5, 7]
 sample_data2 = [2, 3, 5, 3, 5, 3, 2, 6, 5, 4, 3]
 
-# TODO: Use the mean function - calculates the average value.
+# Use the mean function - calculates the average value.
 # print(statistics.mean(sample_data1))
 
 
-# TODO: Use the different median functions.
+# Use the different median functions.
 print(statistics.median(sample_data1))
 print(statistics.median_low(sample_data1))
 print(statistics.median_high(sample_data1))
 
-# TODO: The mode function indicates which data item occurs most frequently.
+# The mode function indicates which data item occurs most frequently.
 print(statistics.mode(sample_data2))
 
 
@@ -47,7 +47,7 @@ def calcStats():
     # Read the data from the CSV file.
     data = readData()
 
-    # TODO: Calculate interesting data points.
+    # Calculate interesting data points.
     data_mean = round(statistics.mean(data), 2)
     data_med = round(statistics.median(data), 2)
     data_std = round(statistics.stdev(data), 2)
@@ -59,5 +59,5 @@ def calcStats():
     print("Variance: ", data_var)
 
 
-# TODO: Calculate stats values from a CSV file of data.
+# Calculate stats values from a CSV file of data.
 calcStats()

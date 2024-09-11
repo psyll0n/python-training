@@ -13,7 +13,7 @@ startTime = time.time()  # get the first lap's start time.
 lastTime = startTime
 lapNum = 1
 
-# TODO: Start tracking the lap times.
+# Start tracking the lap times.
 try:
     while True:
         input()

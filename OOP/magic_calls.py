@@ -13,7 +13,7 @@ class Book:
     def __str__(self):
         return f"{self.title} by {self.author}, costs {self.price}"
 
-    # TODO: the __call__ method is used to call the object like a function.
+    # The __call__ method is used to call the object like a function.
     def __call__(self, title, author, price):
         self.title = title
         self.author = author
@@ -24,7 +24,7 @@ b1 = Book("The Sun", "John Smith", 20.0)
 b2 = Book("The Moon", "John Smooth", 30.0)
 
 
-# TODO: Call the object as if it were a function.
+# Call the object as if it were a function.
 print(b1)
 b1("Anna Karenina", "Leo Tolstoy", 49.95)
 print(b1)

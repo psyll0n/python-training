@@ -8,12 +8,12 @@ dt1 = datetime.datetime(2019, 6, 10)
 dt2 = datetime.datetime(2021, 9, 27)
 
 
-# TODO: Dates and times can be compared.
+# Dates and times can be compared.
 print(dt1 < dt2)
 print(dt1 > dt2)
 
 
-# TODO: Subtracting one date from another creates a timedelta object.
+# Subtracting one date from another creates a timedelta object.
 delta = dt2 - dt1
 print(delta)
 
@@ -21,7 +21,7 @@ print(delta)
 print(delta.days)
 print(delta.seconds)
 
-# TODO: Timedeltas can be used to perform date math.
+# Timedeltas can be used to perform date math.
 now = datetime.datetime.now()
 oneyear = datetime.timedelta(days=365)
 oneweek = datetime.timedelta(weeks=1)

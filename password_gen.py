@@ -6,14 +6,14 @@ import secrets
 import string
 
 
-# TODO: Create a function that generates a random password.
+#  Create a function that generates a random password.
 def generateTempPass(num_chars=10):
     potential_chars = string.ascii_letters + string.digits + "+=?/!@#$%*"
     result = "".join(secrets.choice(potential_chars) for i in range(num_chars))
     return result
 
 
-# TODO: Function to return a temp password and enforce 1 number and 1 upper case letter.
+#  Function to return a temp password and enforce 1 number and 1 upper case letter.
 def generateStrongPass(num_chars=10):
     potentialChars = string.ascii_letters + string.digits + "+=?/!@#$%*"
     while True:
@@ -32,7 +32,7 @@ def generateStrongPass(num_chars=10):
 print(generateStrongPass(10))
 
 
-# TODO: Create a temp password, hard-to-guess URL.
+#  Create a temp password, hard-to-guess URL.
 resultUrl = "https://my.example.com?reset="
 resultUrl += secrets.token_urlsafe(16)
 print(resultUrl)

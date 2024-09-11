@@ -6,23 +6,23 @@ import os
 import secrets
 
 
-# TODO: The urandom() in the OS module produces random numbers that are
+# The urandom() in the OS module produces random numbers that are
 # cryprographically-secure to use for sensitive data.
 result = os.urandom(16)
 # print([hex(b) for b in result])
 
-# TODO: secrets.choice() is a function similat to random.choice() but more secure.
+# secrets.choice() is a function similat to random.choice() but more secure.
 moves = ["rock", "paper", "scissors"]
 # print(secrets.choice(moves))
 
-# TODO: secrets.token_bytes() is a function that returns a random byte string.
+# secrets.token_bytes() is a function that returns a random byte string.
 result = secrets.token_bytes(8)
 # print(result)
 
-# TODO: secrets.token_hex() is a function that returns a random hexadecimal string.
+# secrets.token_hex() is a function that returns a random hexadecimal string.
 result = secrets.token_hex(8)
 # print(result)
 
-# TODO: secrets.token_urlsafe() is a function that returns a random URL-safe string.
+# secrets.token_urlsafe() is a function that returns a random URL-safe string.
 results = secrets.token_urlsafe()
 print(results)
