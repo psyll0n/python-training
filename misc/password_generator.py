@@ -26,7 +26,7 @@ def generateStrongPass(num_chars=15):
 
 
 # Create a temp password.
-# print(generateTempPass(10))
+# print(generateTempPass(15))
 
 # Create a strong temp password.
 print(generateStrongPass(15))
