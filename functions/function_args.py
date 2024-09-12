@@ -13,6 +13,6 @@ def kitten(*args):
     else:
         print("Meow.")
 
-
+# The call to the main function below allows script-like execution of the code 
 if __name__ == "__main__":
     main()

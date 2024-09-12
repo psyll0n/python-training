@@ -1,5 +1,7 @@
+#! python3
 
-# Explanation: This code allows you to convert a scanned PDF into a text format using OCR. 
+# Explanation: This code allows you to convert a scanned PDF into a text format by 
+# using Optical Character Recognition. 
 #
 # Libraries:
 #
