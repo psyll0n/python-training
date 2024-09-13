@@ -1,18 +1,19 @@
-#!/usr/bin/env python3
+#! python3
+
+# Example function with two positional arguments.
+def greeting(name, location):
+    print(f"Hello, {name}!")
+    print(f"Your location is {location}")
+    print(f"How are you doing today, {name}?")
+
+greeting("Alex", "Sofia")
 
 
-def main():
-    x = ("meow", "grrr", "purr")
-    kitten(*x)
+# Example function with two keyword arguments.
+def greeting_with_name(name="George", location="London"):
+    print(f"Hello, {name}!")
+    print(f"Your location is {location}")
+    print(f"How are you doing today, {name}?")
+    
 
-
-def kitten(*args):
-    if len(args):
-        for i in args:
-            print(i)
-    else:
-        print("Meow.")
-
-# The call to the main function below allows script-like execution of the code 
-if __name__ == "__main__":
-    main()
+greeting_with_name()

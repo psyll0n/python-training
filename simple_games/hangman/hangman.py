@@ -1,3 +1,5 @@
+#! python3
+
 import random
 from hangman_words import word_list
 from hangman_ascii_art import HANGMAN_LOGO, HANGMAN_STAGES
