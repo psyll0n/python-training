@@ -48,6 +48,7 @@ def caesar_encryption(original_text, shift_amount, encode_decode):
 
     return encrypted_text
 
+
 should_continue = True
 
 while should_continue: 
