@@ -1,10 +1,12 @@
+#! python3
+
+import caesar_ascii
+
+print(caesar_ascii.caesar_logo)
+
+
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
             'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-# Get user inputs
-encode_decode = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
 
 
 def caesar_encryption(original_text, shift_amount, encode_decode):
@@ -28,7 +30,9 @@ def caesar_encryption(original_text, shift_amount, encode_decode):
     shift_amount %= 26  # Ensure the shift doesn't exceed the length of the alphabet
 
     if encode_decode == "decode":
-        shift_amount = -shift_amount
+        # Multiply the value stored in the shift_amount by -1 so that it becomes negative,
+        # e.g. 7 becomes -7
+        shift_amount *= -1
 
     for letter in original_text:
         if letter in alphabet:
@@ -44,7 +48,22 @@ def caesar_encryption(original_text, shift_amount, encode_decode):
 
     return encrypted_text
 
+should_continue = True
 
-# Call the function and print the result
-result = caesar_encryption(text, shift, encode_decode)
-print(f"The {encode_decode}d text is: {result}")
+while should_continue: 
+    # Get user inputs
+    encode_decode = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
+
+    # Call the function and print the result
+    result = caesar_encryption(text, shift, encode_decode)
+    print(f"The {encode_decode}d text is: {result}")
+    
+    restart = input("Type 'yes' if you want to restart the program. Otherwise, type 'no'.\n").lower()
+    if restart == "no":
+        should_continue = False
+        print("Goodbye!")
+    else:
+        should_continue = True
+
