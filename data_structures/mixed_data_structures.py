@@ -1,69 +1,37 @@
-#!/usr/bin/env python3
+# A complex dictionary data structure that contains the names 
+# of several countries as `keys` and lists with city names as a `values` 
 
+travel_log = {
+    "France": ["Paris", "Lille", "Dijon" ],
+    "Germany": ["Stuttgart", "Berlin", "Frankfurt"],
+    "Spain": ["Madrid", "Barcelona", "Seville"],
+}
 
-# globals
-dlevel = 0  # manage nesting level
+# Access the 2nd item in the list with cities in the France key entry:
+print(travel_log["France"][1])
 
+# A nested list example
+nested_list = ["A", "B", ["C", "D"]]
 
-def main():
-    r = range(11)
-    l = list[1, "2", 3, {"four": 4}, 5]
-    t = ("one", "two", None, "four", 5)
-    s = set("It's a bird! It's a plane! It's a superman!")
-    d = dict(one=1, two=2, three=3, four=4, five=5)
-    mixed = [r, l, t, s, d]
-    display(mixed)
+# Access the item at index `1` of the nested list with index `2`
+print(nested_list[2][1])
 
+# A complex dictionary that nests other dictionaries as its key, value pairs
+travel_log = {
+    "France": {
+        "cities_visited": ["Paris", "Lille", "Dijon" ],
+        "total_visits": 12
+    },
+    "Germany": {
+        "cities_visited": ["Stuttgart", "Berlin", "Frankfurt"],
+        "total_visits": 5
+    },
+    "Spain": {
+        "cities_visited": ["Madrid", "Barcelona", "Seville"],
+        "total_visits": 6
+    },
+}
 
-def display(o):
-    global dlevel
-
-    dlevel += 1
-    if isinstance(o, list):
-        print_list(o)
-    elif isinstance(o, range):
-        print_list(o)
-    elif isinstance(o, tuple):
-        print_tuple(o)
-    elif isinstance(o, set):
-        print_set(o)
-    elif isinstance(o, dict):
-        print_dict(o)
-    elif o is None:
-        print("Nada", end=" ", flush=True)
-    else:
-        print(repr(o), end=" ", flush=True)
-    dlevel -= 1
-
-
-def print_list(o):
-    print("[", end=" ")
-    for x in o:
-        display(x)
-    print("]", end=" ", flush=True)
-
-
-def print_tuple(o):
-    print("(", end=" ")
-    for x in o:
-        display(x)
-    print(")", end=" ", flush=True)
-
-
-def print_set(o):
-    print("{", end=" ")
-    for x in o:
-        display(x)
-    print("}", end=" ", flush=True)
-
-
-def print_dict(o):
-    print("{", end=" ")
-    for k, v in o.items():
-        print(k, end=": ")
-        display(v)
-    print("}", end=" ", flush=True)
-
-
-if __name__ == "__main__":
-    main()
+# Access an entry in the `Germany` dictionary that exists in the `cities_visited` 
+# list as 2nd entry...
+print(travel_log["Germany"]["cities_visited"][1])
