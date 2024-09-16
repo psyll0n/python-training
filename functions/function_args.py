@@ -15,5 +15,5 @@ def greeting_with_name(name="George", location="London"):
     print(f"Your location is {location}")
     print(f"How are you doing today, {name}?")
     
-
+    
 greeting_with_name()
