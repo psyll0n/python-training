@@ -57,6 +57,6 @@ numbers = [
     10,
 ]
 
-set(numbers)
+ordered_set = set(numbers)
 
-print(numbers)
+print(ordered_set)
