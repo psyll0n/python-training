@@ -67,4 +67,3 @@ while should_continue:
         print("Goodbye!")
     else:
         should_continue = True
-
