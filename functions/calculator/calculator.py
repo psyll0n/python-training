@@ -134,7 +134,7 @@ def calculator():
             num1 = result
             # Call the Clear screen function
             clear_screen()
-            print(f"Continuing with {num1}...")
+            print(f"Continuing with {num1} ...")
 
 # Start the calculator
 calculator()
