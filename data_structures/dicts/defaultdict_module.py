@@ -8,7 +8,7 @@ from collections import defaultdict
 d = defaultdict(list)
 d["a"] = 1
 d["b"] = 2
-print(d["a"],d["b"])
+print(d["a"], d["b"])
 
 # Grouping Items by Key
 # In this example, we use a defaultdict(list) to group words by their starting letter.
@@ -22,7 +22,7 @@ print(grouped_words)
 # Output: defaultdict(<class 'list'>, {'a': ['apple', 'apricot', 'avocado'], 'b': ['banana', 'blueberry', 'blackberry']})
 
 # Counting Occurrences with int Default
-# A defaultdict(int) is useful for counting occurrences. 
+# A defaultdict(int) is useful for counting occurrences.
 # This behaves like a normal dictionary but initializes missing keys with 0.
 chars = "aabbccaaa"
 char_count = defaultdict(int)
@@ -35,7 +35,12 @@ print(char_count)
 
 # Accumulating Values in a Set
 # Using defaultdict(set) to collect unique values associated with keys.
-data = [("apple", "fruit"), ("carrot", "vegetable"), ("apple", "snack"), ("carrot", "healthy")]
+data = [
+    ("apple", "fruit"),
+    ("carrot", "vegetable"),
+    ("apple", "snack"),
+    ("carrot", "healthy"),
+]
 category_map = defaultdict(set)
 
 for item, category in data:

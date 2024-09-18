@@ -28,13 +28,15 @@ scissors = """
 """
 
 ascii_art = [rock, paper, scissors]
-computer_choice = (random.randint(0, 2))
-player_choice = int(input('Choose 0 for "rock", 1 for "paper" or 2 "scissors. Enter your choice: '))
+computer_choice = random.randint(0, 2)
+player_choice = int(
+    input('Choose 0 for "rock", 1 for "paper" or 2 "scissors. Enter your choice: ')
+)
 
 print("Computer choice: ")
 print(ascii_art[computer_choice])
 
-try: 
+try:
     print("Player choice: ")
     print(ascii_art[player_choice])
     if player_choice == 0 and computer_choice == 2:
@@ -51,5 +53,3 @@ try:
 except IndexError:
     if player_choice >= 3 or player_choice < 0:
         print("You typed an invalid number! You lose!")
-
-

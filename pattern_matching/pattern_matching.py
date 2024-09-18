@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # Pattern matching and searching.
 
+
 def isPhoneNumber(text):
     if len(text) != 12:
         return False

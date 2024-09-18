@@ -16,6 +16,7 @@ DIGIT_MAP = {
     "nine": "9",
 }
 
+
 def convert(s):
     """Convert a string to an integer."""
     try:
@@ -31,13 +32,13 @@ def convert(s):
 if __name__ == "__main__":
     # Prompt user for input
     user_input = input("Enter a number using words (e.g., 'two three four'): ")
-    
+
     # Split the user input into words
     input_list = user_input.lower().split()
-    
+
     # Call the convert function with user input
     success, result = convert(input_list)
-    
+
     if success:
         print(f"Conversion succeeded! x = {result}")
     else:

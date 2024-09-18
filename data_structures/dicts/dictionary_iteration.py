@@ -1,4 +1,4 @@
-#! python3 
+#! python3
 
 """
 This is the scoring criteria: 
@@ -13,13 +13,7 @@ This is the scoring criteria:
 """
 
 
-student_scores = {
-    'Harry': 88,
-    'Ron': 78,
-    'Hermione': 95,
-    'Draco': 75,
-    'Neville': 60
-}
+student_scores = {"Harry": 88, "Ron": 78, "Hermione": 95, "Draco": 75, "Neville": 60}
 
 
 student_grades = {}

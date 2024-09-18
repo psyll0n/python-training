@@ -5,17 +5,43 @@ import caesar_ascii
 print(caesar_ascii.caesar_logo)
 
 
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-            'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+alphabet = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+]
 
 
 def caesar_encryption(original_text, shift_amount, encode_decode):
     """
-    Encrypts or decrypts a given text by shifting its letters according to a shift amount, 
+    Encrypts or decrypts a given text by shifting its letters according to a shift amount,
     a.k.a 'Caesar Cypher'.
-    
-    This function shifts each letter of the input text based on its position in the alphabet. 
-    The direction of the shift depends on whether the user wants to 'encode' (shift forward) or 
+
+    This function shifts each letter of the input text based on its position in the alphabet.
+    The direction of the shift depends on whether the user wants to 'encode' (shift forward) or
     'decode' (shift backward) the text.
 
     Args:
@@ -51,17 +77,21 @@ def caesar_encryption(original_text, shift_amount, encode_decode):
 
 should_continue = True
 
-while should_continue: 
+while should_continue:
     # Get user inputs
-    encode_decode = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+    encode_decode = input(
+        "Type 'encode' to encrypt, type 'decode' to decrypt:\n"
+    ).lower()
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
 
     # Call the function and print the result
     result = caesar_encryption(text, shift, encode_decode)
     print(f"The {encode_decode}d text is: {result}")
-    
-    restart = input("Type 'yes' if you want to restart the program. Otherwise, type 'no'.\n").lower()
+
+    restart = input(
+        "Type 'yes' if you want to restart the program. Otherwise, type 'no'.\n"
+    ).lower()
     if restart == "no":
         should_continue = False
         print("Goodbye!")

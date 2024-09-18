@@ -1,5 +1,13 @@
 # Nested lists Example
-fruits = ["Strawberies", "Nectarines", "Apples", "Grapes", "Peaches", "Cherries", "Pear"]
+fruits = [
+    "Strawberies",
+    "Nectarines",
+    "Apples",
+    "Grapes",
+    "Peaches",
+    "Cherries",
+    "Pear",
+]
 vegetables = ["Spinach", "Kale", "Tomatoes", "Celery", "Potatoes"]
 
 dirty_dozen = [fruits, vegetables]

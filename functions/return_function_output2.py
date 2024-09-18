@@ -1,5 +1,6 @@
 #! python3
 
+
 def function_1(text):
     return text + " " + text
 
@@ -14,10 +15,10 @@ output = function_2(function_1("hello"))
 print(output)
 
 
-
 def outer_function(a, b):
     def inner_function(c, d):
         return c + d
+
     # The output of inner_function becomes the output of outer_function.
     return inner_function(a, b)
 

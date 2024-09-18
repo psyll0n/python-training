@@ -23,10 +23,10 @@ game_over = False
 while not game_over:
     # Show current word progress
     print("\n" + " ".join(display))
-    
+
     # Get user input and validate it
     guess = input("\nMake a guess (a single letter): ").lower()
-    
+
     if len(guess) != 1 or not guess.isalpha():
         print("Please enter a single letter!")
         continue
@@ -35,7 +35,7 @@ while not game_over:
     if guess in correct_guesses or guess in wrong_guesses:
         print(f"You've already guessed '{guess}'. Try another letter.")
         continue
-    
+
     # Process correct guess
     if guess in chosen_word:
         print(f"Good guess! '{guess}' is in the word.")
@@ -45,14 +45,14 @@ while not game_over:
         for index, letter in enumerate(chosen_word):
             if letter == guess:
                 display[index] = letter
-        
+
         # Check if the player has guessed all letters
         if "_" not in display:
             game_over = True
             print("\n********* Congratulations! You've guessed the word! *********")
             print(f"The word was: {chosen_word}")
             break
-    
+
     # Process incorrect guess
     else:
         print(f"Sorry, '{guess}' is not in the word.")
