@@ -13,4 +13,5 @@ class_syntax_explanation2.py
 *.tsv
 *.csv
 *.log
-.idea/python-master.iml
+.idea/
+.idea/*
