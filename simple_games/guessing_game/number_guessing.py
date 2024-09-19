@@ -15,7 +15,7 @@ secret_number = random.randint(minimum, maximum)
 game_over = False  # Flag to track if the game is over
 
 
-def guess_the_number(guess):
+def check_number(guess):
     """
     Handles the logic for processing the user's guess and provides feedback.
 
@@ -38,14 +38,15 @@ def guess_the_number(guess):
         print(f"Your guesses so far: {guesses}")
     else:
         game_over = True
-        print("Good job. You have guessed the correct number!")
+        print("Good job. You have guessed the correct number! 🎇")
         guesses.append(guess)
         print(f"Your guesses: {guesses}")
 
 
 # Introduction to the game
 print("Welcome to the number guessing game!")
-print("I am thinking of a number between 1 and 100...")
+print(f"I am thinking of a number between {minimum} and {maximum}...")
+
 
 # Ask the player to select a difficulty level
 difficulty = input("Choose difficulty. Type 'easy' or 'hard' to begin: ")
@@ -58,8 +59,9 @@ elif difficulty == "hard":
     max_guesses = 5
     print("You have 5 attempts remaining to guess the number.")
 else:
-    print("Invalid difficulty selected. Defaulting to 'hard'.")
-    max_guesses = 5
+    print("Invalid difficulty selected. Defaulting to 'easy'.")
+    max_guesses = 10
+
 
 # Main game loop: Continue until the user either guesses the number or runs out of guesses
 while not game_over:
@@ -68,13 +70,13 @@ while not game_over:
     # If the player has used all guesses, the game is over
     if max_guesses == 0:
         game_over = True
-        print("Game Over! You have failed to guess the number.")
+        print("Game Over! You have failed to guess the number. 🤯")
         print(f"The correct number was: {secret_number}")
     else:
         # Ask the player for their guess and process it
         try:
             guess = int(input("Make a guess: "))
-            guess_the_number(guess)
+            check_number(guess)
             max_guesses -= 1
         except ValueError:
             print("Invalid input. Please enter a number.")
