@@ -84,4 +84,8 @@ while not game_over:
         # Print game logo
         print(ascii_art.game_logo)
         print(f"Sorry, that's wrong! Game OVER!")
+        print(f"{celebrity_name_A} has {
+              instagram_followers_A} Million followers")
+        print(f"{celebrity_name_B} has {
+              instagram_followers_B} Million followers")
         print(f"Final score: {current_score}")
