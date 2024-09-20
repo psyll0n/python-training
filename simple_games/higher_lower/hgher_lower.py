@@ -70,6 +70,7 @@ while not game_over:
 
     # Check if the user's choice is correct
     if compare(instagram_followers_A, instagram_followers_B, user_input):
+        print(ascii_art.game_logo)
         current_score += 1
         print(f"You are right! Current score: {current_score}")
 

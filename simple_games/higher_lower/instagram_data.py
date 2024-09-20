@@ -91,7 +91,7 @@ data = [
     },
     {
         "name": "Nicki Minaj",
-        "follower_count": 227990090,
+        "follower_count": 228.9,
         "description": "Musician",
         "country": "United States",
     },
