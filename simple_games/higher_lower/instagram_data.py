@@ -4,7 +4,6 @@ data = [
         "follower_count": 632.6,
         "description": "Footballer",
         "country": "Portugal"
-
     },
     {
         "name": "Leo Messi",
