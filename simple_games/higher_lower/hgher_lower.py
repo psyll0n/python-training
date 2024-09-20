@@ -36,7 +36,8 @@ def compare(instagram_followers_A, instagram_followers_B, user_input):
     else:
         game_over = True
         print(ascii_art.game_logo)
-        print(f"Sorry, that's wrong! Final score: {current_score}")
+        print(f"Sorry, that's wrong! GAME OVER!")
+        print(f"Final score: {current_score}")
 
 
 # Main game loop
@@ -74,6 +75,7 @@ while not game_over:
           description_celebrity_B}, from {country_celebrity_B}")
 
     # Prompt user to choose who has more Instagram followers
+
     user_input = input(
         "Who has more Instagram followers? Type 'A' or 'B': ").strip().upper()
     print("\n" * 50)
