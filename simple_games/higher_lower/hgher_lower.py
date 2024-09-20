@@ -35,7 +35,6 @@ def compare(instagram_followers_A, instagram_followers_B, user_input):
 celebrity_A = random.choice(instagram_data.data)  # Initial selection for A
 
 while not game_over:
-
     # Select a new random celebrity for B and ensure it's not the same as A
     celebrity_B = random.choice(instagram_data.data)
     while celebrity_A == celebrity_B:
