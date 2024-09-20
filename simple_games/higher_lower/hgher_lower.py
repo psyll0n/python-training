@@ -22,32 +22,22 @@ def compare(instagram_followers_A, instagram_followers_B, user_input):
     user_input (str): The user's choice, either "A" or "B".
 
     Returns:
-    None: Updates global variables for game state and score.
+    bool: True if the user is correct, False otherwise.
     """
-    global game_over
-    global current_score
-
     if user_input == "A" and instagram_followers_A > instagram_followers_B:
-        current_score += 1
-        print(f"You are right! Current score: {current_score}")
+        return True
     elif user_input == "B" and instagram_followers_B > instagram_followers_A:
-        current_score += 1
-        print(f"You are right! Current score: {current_score}")
-    else:
-        game_over = True
-        print(ascii_art.game_logo)
-        print(f"Sorry, that's wrong! GAME OVER!")
-        print(f"Final score: {current_score}")
+        return True
+    return False
 
 
 # Main game loop
+celebrity_A = random.choice(instagram_data.data)  # Initial selection for A
+
 while not game_over:
 
-    # Randomly choose two celebrities from the data
-    celebrity_A = random.choice(instagram_data.data)
+    # Select a new random celebrity for B and ensure it's not the same as A
     celebrity_B = random.choice(instagram_data.data)
-
-    # Ensure both chosen celebrities are not the same
     while celebrity_A == celebrity_B:
         celebrity_B = random.choice(instagram_data.data)
 
@@ -75,10 +65,24 @@ while not game_over:
           description_celebrity_B}, from {country_celebrity_B}")
 
     # Prompt user to choose who has more Instagram followers
-
     user_input = input(
         "Who has more Instagram followers? Type 'A' or 'B': ").strip().upper()
-    print("\n" * 50)
+    print("\n" * 100)
 
-    # Compare the follower counts and check if the user is correct
-    compare(instagram_followers_A, instagram_followers_B, user_input)
+    # Check if the user's choice is correct
+    if compare(instagram_followers_A, instagram_followers_B, user_input):
+        current_score += 1
+        print(f"You are right! Current score: {current_score}")
+
+        # Update celebrity_A to be the correct choice (the one with more followers)
+        if user_input == "A":
+            celebrity_A = celebrity_A  # A stays the same, nothing to update
+        else:
+            celebrity_A = celebrity_B  # B becomes the new A
+
+    else:
+        game_over = True
+        # Print game logo
+        print(ascii_art.game_logo)
+        print(f"Sorry, that's wrong! Game OVER!")
+        print(f"Final score: {current_score}")
