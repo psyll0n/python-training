@@ -3,7 +3,7 @@
 # Initialize global variables
 payment_successful = False
 powered_on = ""
-power_off = ""
+power_switch = ""
 profit = 0.0  # Track the total profit made by the machine
 
 # Available resources in the coffee machine
@@ -69,11 +69,11 @@ def machine_power_management():
     Function to handle the power on/off state of the coffee machine.
     It will prompt the user to turn the machine on or off.
     """
-    global powered_on, power_off, selection, profit
+    global powered_on, power_switch, selection, profit
 
-    power_off = input("Power off the coffee machine? (on/off): ")
+    power_switch = input("Power off the coffee machine? (on/off): ")
 
-    if power_off == "on":
+    if power_switch == "on":
         powered_on = True
 
         while powered_on:
