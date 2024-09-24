@@ -64,7 +64,7 @@ payment = {
 }
 
 
-def power_off_machine():
+def machine_power_management():
     """
     Function to handle the power on/off state of the coffee machine.
     It will prompt the user to turn the machine on or off.
@@ -191,4 +191,4 @@ def power_off_machine():
 
 
 # Start the coffee machine
-power_off_machine()
+machine_power_management()
