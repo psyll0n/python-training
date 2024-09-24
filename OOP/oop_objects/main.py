@@ -23,6 +23,5 @@ print(my_screen.canvheight)
 # Call the forward() method of the `timmy_the_turtle` object and give it the command to move forward 100 pixels
 timmy_the_turtle.forward(100)
 
-
 # Calling the .exitonclick() object method of the `my_screen` object
 my_screen.exitonclick()
