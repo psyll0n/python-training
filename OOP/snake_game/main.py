@@ -49,7 +49,7 @@ while game_is_on:
 
     # Detect collision with the snake's tail.
     # Loop through the segments in the `segments` list.
-    for segment in snake.segments[2:-1]:
+    for segment in snake.segments[1:]:
         # Check what is the distance of the `snake's head from the rest of the segments in it body.
         if snake.head.distance(segment) < 10:
             game_is_on = False
