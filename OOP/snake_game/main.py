@@ -27,7 +27,7 @@ screen.onkey(snake.down, "Down")
 screen.onkey(snake.left, "Left")
 screen.onkey(snake.right, "Right")
 
-
+# Main game logic
 while game_is_on:
     screen.update()
     time.sleep(0.1)
@@ -45,7 +45,6 @@ while game_is_on:
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         game_is_on = False
         score.game_over()
-
 
     # Detect collision with the snake's tail.
     # Loop through the segments in the `segments` list.
