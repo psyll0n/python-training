@@ -74,7 +74,7 @@ def detect_score(ball, score):
 
 def check_game_over(score):
     """Checks if either player has won the game (reaching 5 points)."""
-    if score.score_p1 == 5 or score.score_p2 == 5:
+    if score.score_p1 == 10 or score.score_p2 == 10:
         score.game_over()
         return True
     return False
