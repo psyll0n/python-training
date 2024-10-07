@@ -7,7 +7,6 @@ class Scoreboard(Turtle):
     """Sets up the Scoreboard object class"""
     def __init__(self):
         super().__init__()
-        super().__init__()
         self.hideturtle()
         self.color("Green")
         self.penup()
