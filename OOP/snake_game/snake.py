@@ -27,6 +27,14 @@ class Snake:
         t.goto(position)
         self.segments.append(t)
 
+    # Reset the snake's position if end-game condition occurs.
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
     # Add a new segment to the snake as it eats more food
     def extend(self):
         # Access the segments list and get the position of the last segment of the snake's body.
