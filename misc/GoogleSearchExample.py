@@ -5,9 +5,9 @@
 
 """ This script does the following:
 • Reads the command line arguments from sys.argv.
-• Fetches the search result page with the requests module.
+• Fetches the search result page with the `requests` module.
 • Finds the links to each search result.
-• Calls the webbrowser.open() function to open the web browser.
+• Calls the `webbrowser.open()` function to open the web browser.
 """
 
 import requests
@@ -30,7 +30,7 @@ res.raise_for_status()
 soup = bs4.BeautifulSoup(res.text, "html.parser")
 
 
-# Get all of the 'a' tags after an element with the class 'kCrYT' (which are the results)
+# Get all the 'a' tags after an element with the class 'kCrYT' (which are the results)
 linkElements = soup.select(".kCrYT > a")
 
 # Open a browser tab for each result.
