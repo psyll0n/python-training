@@ -3,6 +3,7 @@ import pandas as pd
 import time
 from write_states import WriteState
 
+
 # Set up the game screen size and its properties
 screen = turtle.Screen()
 screen.setup(width=725, height=491)
@@ -53,7 +54,7 @@ while len(guessed_states) < 50:
 
         user_score += 1
 
-# Handle the end of the game: Show states left to guess
+# Handle the end of the game: Show states left to guess by using list comprehension.
 states_left = [state for state in all_states if state not in guessed_states]
 
 # Show unguessed states on the screen
