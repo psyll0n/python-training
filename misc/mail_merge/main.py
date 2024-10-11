@@ -16,5 +16,7 @@ with open("./Input/Letters/starting_letter.txt") as starting_letter:
         new_letter = letter.replace(PLACEHOLDER, stripped_name)
         print(new_letter)
 
-        with open(f"./Output/ReadyToSend/letter_for_{stripped_name}.docx", mode="w") as invitation:
+        with open(
+            f"./Output/ReadyToSend/letter_for_{stripped_name}.docx", mode="w"
+        ) as invitation:
             invitation.write(new_letter)

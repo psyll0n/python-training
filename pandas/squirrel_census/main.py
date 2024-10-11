@@ -7,14 +7,20 @@ data = pd.read_csv("./2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
 column_name = "Primary Fur Color"
 
 # Count occurrences of specific fur colors
-gray = data[column_name].str.contains("Gray", na=False).sum()      # Count squirrels with Gray fur
-black = data[column_name].str.contains("Black", na=False).sum()    # Count squirrels with Black fur
-red = data[column_name].str.contains("Cinnamon", na=False).sum()   # Count squirrels with Cinnamon fur (red-colored)
+gray = (
+    data[column_name].str.contains("Gray", na=False).sum()
+)  # Count squirrels with Gray fur
+black = (
+    data[column_name].str.contains("Black", na=False).sum()
+)  # Count squirrels with Black fur
+red = (
+    data[column_name].str.contains("Cinnamon", na=False).sum()
+)  # Count squirrels with Cinnamon fur (red-colored)
 
 # Create a dictionary with color names as keys and corresponding counts as values
 squirrel_count_by_fur_color = {
     "Color": ["Gray", "Black", "Cinnamon"],  # List of colors
-    "Count": [gray, black, red]              # Corresponding counts
+    "Count": [gray, black, red],  # Corresponding counts
 }
 
 # Convert the dictionary into a DataFrame
@@ -24,4 +30,6 @@ squirrel_count = pd.DataFrame(squirrel_count_by_fur_color)
 print(squirrel_count)
 
 # Save the DataFrame to a CSV file
-squirrel_count.to_csv("squirrel_count_by_fur_color.csv", index=False)  # index=False to avoid saving index as an extra column
+squirrel_count.to_csv(
+    "squirrel_count_by_fur_color.csv", index=False
+)  # index=False to avoid saving index as an extra column

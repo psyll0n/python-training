@@ -12,6 +12,7 @@ colors = ["blue", "green", "red", "orange", "purple", "black"]
 y_positions = [100, 60, 20, -20, -60, -100]
 all_turtles = []
 
+
 def set_color():
     """
     Randomly selects a color from the available `colors` list for a turtle.
@@ -35,7 +36,9 @@ for turtle_index in range(number_of_turtles):
     all_turtles.append(t)
 
 # Get user's bet for the race
-user_bet = screen.textinput(title="Make your bet", prompt="Which turtle will win the race? Enter a color: ")
+user_bet = screen.textinput(
+    title="Make your bet", prompt="Which turtle will win the race? Enter a color: "
+)
 
 # Start the race if a bet was made
 if user_bet:
@@ -48,7 +51,9 @@ while race_is_on:
         if t.xcor() > 230:  # Finish line is at x=230
             race_is_on = False
             print("Game Over!")
-            winner = t.color()[0]  # Get the color of the winning turtle without the pen color.
+            winner = t.color()[
+                0
+            ]  # Get the color of the winning turtle without the pen color.
             if winner == user_bet:
                 print(f"The winner is {winner}! You win!")
             else:

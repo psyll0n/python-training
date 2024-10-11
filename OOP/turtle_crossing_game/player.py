@@ -15,12 +15,10 @@ class Player(Turtle):
         self.goto(STARTING_POSITION)
         self.setheading(90)
 
-
     def move(self):
         if self.ycor() < 280:
             new_y = self.ycor() + MOVE_DISTANCE
             self.goto(self.xcor(), new_y)
-
 
     def reset_position(self):
         self.goto(STARTING_POSITION)

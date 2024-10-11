@@ -51,7 +51,7 @@ class Scoreboard(Turtle):
         self.write(
             f"Score: {self.score} High Score: {self.high_score}",
             align=self.ALIGNMENT,
-            font=self.FONT
+            font=self.FONT,
         )
 
     def reset(self):
@@ -69,7 +69,6 @@ class Scoreboard(Turtle):
         """Save the current high score to a file."""
         with open(self.HIGH_SCORE_FILE, mode="w") as file:
             file.write(str(self.high_score))
-
 
     def game_over(self):
         """Display 'GAME OVER' message in the center of the screen."""

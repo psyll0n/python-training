@@ -3,7 +3,7 @@ import random
 
 
 t = turtle.Turtle()
-turtle.colormode(255) # Sets the color mode to RGB
+turtle.colormode(255)  # Sets the color mode to RGB
 t.shape("turtle")
 
 
@@ -24,4 +24,3 @@ draw_spirograph(5)
 
 screen = turtle.Screen()
 screen.exitonclick()
-

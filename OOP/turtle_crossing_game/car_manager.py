@@ -13,10 +13,9 @@ class CarManager(Turtle):
         self.all_cars = []
         self.car_speed = STARTING_MOVE_DISTANCE
 
-
     # Generate a new car at a random position on the Y axis
     def generate_car(self):
-        random_chance = random.randint(1,7)
+        random_chance = random.randint(1, 7)
         if random_chance == 1:
             new_car = Turtle("square")
             new_car.shapesize(stretch_wid=1, stretch_len=2)
@@ -26,11 +25,9 @@ class CarManager(Turtle):
             new_car.goto(300, random_y)
             self.all_cars.append(new_car)
 
-
     def drive(self):
         for car in self.all_cars:
             car.backward(STARTING_MOVE_DISTANCE)
-
 
     def level_up(self):
         self.car_speed += MOVE_INCREMENT

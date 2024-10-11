@@ -1,5 +1,3 @@
-
-
 numbers = [1, 2, 3]
 
 new_list = [n + 1 for n in numbers]
@@ -9,10 +7,9 @@ print(new_list)
 
 numbers = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 
-squared_numbers = [n ** 2 for n in numbers]
+squared_numbers = [n**2 for n in numbers]
 
 print(squared_numbers)
-
 
 
 range(1, 5)
@@ -26,14 +23,12 @@ short_names = [name for name in names if len(name) < 5]
 print(short_names)
 
 
-
 capitalized_names = [name.upper() for name in names if len(name) > 5]
 
 print(capitalized_names)
 
 
-
-list_of_strings = ['9', '0', '32', '8', '2', '8', '64', '29', '42', '99']
+list_of_strings = ["9", "0", "32", "8", "2", "8", "64", "29", "42", "99"]
 
 numbers = [int(i) for i in list_of_strings]
 
@@ -46,10 +41,10 @@ print(result)
 
 # Read the contents of file1.txt and file2.txt
 
-with open('file1.txt') as file1:
+with open("file1.txt") as file1:
     file1_numbers = file1.readlines()
 
-with open('file2.txt') as file2:
+with open("file2.txt") as file2:
     file2_numbers = file2.readlines()
 
 # Convert the read lines into a list of integers

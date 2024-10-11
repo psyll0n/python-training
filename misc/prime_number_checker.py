@@ -17,7 +17,7 @@ def is_prime(num):
     # Only check for factors up to the square root of num
     # If a number n has a divisor larger than sqrt(n),
     # the corresponding divisor will be smaller than sqrt(n)
-    for i in range(2, int(num ** 0.5) + 1):
+    for i in range(2, int(num**0.5) + 1):
         if num % i == 0:  # If divisible by any number, it's not prime
             return False
 

@@ -1,6 +1,7 @@
 from turtle import Turtle
 import random
 
+
 # Create a Food class that inherits from the Turtle class in the `turtle` module.
 class Food(Turtle):
     def __init__(self):

@@ -3,6 +3,7 @@ from turtle import Turtle
 
 class Ball(Turtle):
     """Sets up the ball object class"""
+
     def __init__(self):
         super().__init__()
         self.shape("circle")

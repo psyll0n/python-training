@@ -1,4 +1,5 @@
 import pandas
+
 # import csv
 
 
@@ -28,7 +29,9 @@ import pandas
 #
 # print(temperatures)
 
-print("====== The Pandas module can also be used for easy access to data in CSV files. =======")
+print(
+    "====== The Pandas module can also be used for easy access to data in CSV files. ======="
+)
 
 # The Pandas module can also be used for easy access to data in CSV files.
 data = pandas.read_csv("weather_data.csv")
@@ -44,7 +47,9 @@ print("======== Check what is the type of the data in the 2nd row. ==========")
 # Check what is the type of the data in the 2nd row
 print(type(data["temp"]))
 
-print("====== Alternatively, the following syntax can be used to achieve the same result. ========")
+print(
+    "====== Alternatively, the following syntax can be used to achieve the same result. ========"
+)
 
 # Alternatively, the following syntax can be used to achieve the same result.
 # The column name should be typed EXACTLY as it is in the CSV file.
@@ -61,10 +66,12 @@ print("======== Create a list from the 2nd row in `data`. ========")
 temp_list = data["temp"].to_list()
 print(temp_list)
 
-print("====== Calculate the average temperature by using the `temp_list` dict created above. ========")
+print(
+    "====== Calculate the average temperature by using the `temp_list` dict created above. ========"
+)
 
 # Calculate the average temperature by using the `temp_list` dict created above.
-average_temp = sum(temp_list)/len(temp_list)
+average_temp = sum(temp_list) / len(temp_list)
 print(average_temp)
 
 print("============ Create a dictionary out of the CSV file data. =================")
@@ -73,7 +80,9 @@ print("============ Create a dictionary out of the CSV file data. ==============
 data_dict = data.to_dict()
 print(data_dict)
 
-print("===== Calculate the average temperature by using Pandas `.mean()` built-in method. =======")
+print(
+    "===== Calculate the average temperature by using Pandas `.mean()` built-in method. ======="
+)
 
 # Calculate the average temperature by using Pandas `.mean()` built-in method.
 print(data["temp"].mean())
@@ -88,22 +97,21 @@ print("======= Access the row with the highest value in a data series. =========
 # Access the row with the highest value in a data series
 print(data[data.temp == data.temp.max()])
 
-print("========= Find and convert the first value in the series in the column 'Monday'. ==========")
+print(
+    "========= Find and convert the first value in the series in the column 'Monday'. =========="
+)
 print("======== Convert the temperature from Celsius to Fahrenheit. =========")
 # Find and convert the first value in the series in the column "Monday".
 # Convert the temperature from Celsius to Fahrenheit
 monday = data[data.day == "Monday"]
 monday_temp = monday.temp[0]
-monday_temp_F = monday_temp * 9/5 + 32
+monday_temp_F = monday_temp * 9 / 5 + 32
 print(monday_temp_F)
 
 print("====== Create a new dataframe from scratch by using Pandas. =========")
 
 # Create a dataframe from scratch by using Pandas
-data_dict = {
-    "students": ["Amy", "James", "Angela"],
-    "scores": [76, 56, 65]
-}
+data_dict = {"students": ["Amy", "James", "Angela"], "scores": [76, 56, 65]}
 
 data = pandas.DataFrame(data_dict)
 print(data)

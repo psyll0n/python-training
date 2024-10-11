@@ -4,9 +4,11 @@ from snake import Snake
 from food import Food
 from scoreboard import Scoreboard
 
+
 def restart_game():
     """Prompt the user to play again and return their response."""
     return textinput("Play again?", "Y / N").lower()
+
 
 def is_game_over(snake, score, lives):
     """
@@ -25,6 +27,7 @@ def is_game_over(snake, score, lives):
         snake.reset()
         score.update_scoreboard()
         return True
+
 
 def main():
     # Initialize game state
@@ -64,8 +67,12 @@ def main():
             score.increase_score()
 
         # Detect collision with wall
-        if (snake.head.xcor() > 280 or snake.head.xcor() < -280 or
-            snake.head.ycor() > 280 or snake.head.ycor() < -280):
+        if (
+            snake.head.xcor() > 280
+            or snake.head.xcor() < -280
+            or snake.head.ycor() > 280
+            or snake.head.ycor() < -280
+        ):
             game_is_on = is_game_over(snake, score, lives)
             lives -= 1
 
@@ -82,6 +89,7 @@ def main():
         main()
     else:
         screen.exitonclick()
+
 
 if __name__ == "__main__":
     main()

@@ -7,17 +7,22 @@ screen = Screen()
 def move_forwards():
     t.forward(10)
 
+
 def move_backwards():
     t.backward(10)
+
 
 def move_clockwise():
     t.right(10)
 
+
 def move_counter_clockwise():
     t.left(10)
 
+
 def clear_screen():
     t.screen.reset()
+
 
 # An "Event-Listener". Method in the Turtle module that `listens` for keyboard events.
 screen.listen()

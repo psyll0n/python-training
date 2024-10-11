@@ -14,6 +14,16 @@ def kitten(*args):
         print("Meow.")
 
 
+def add(*args):
+    total = 0
+    for num in args:
+        total += num
+    print(f"The total is: {total}")
+
+
+add(2, 43, 53, 76, 80)
+
+
 # The call to the main function below allows script-like execution of the code
 if __name__ == "__main__":
     main()

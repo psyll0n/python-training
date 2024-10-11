@@ -3,7 +3,7 @@ data = [
         "name": "Christiano Ronaldo",
         "follower_count": 632.6,
         "description": "Footballer",
-        "country": "Portugal"
+        "country": "Portugal",
     },
     {
         "name": "Leo Messi",
@@ -13,7 +13,7 @@ data = [
     },
     {
         "name": "Selena Gomez",
-        "follower_count": 	426.8,
+        "follower_count": 426.8,
         "description": "Musician and actress",
         "country": "United States",
     },

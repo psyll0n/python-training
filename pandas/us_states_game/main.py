@@ -36,8 +36,10 @@ while len(guessed_states) < 50:
     timer_format = f"{mins:02d}:{secs:02d}"
 
     # Prompt the user with the current score and remaining time
-    answer_state = screen.textinput(title=f"Time Left: {timer_format} | Guess the State...",
-                                    prompt=f"Current Score: {user_score}/50. What's another state's name?").title()
+    answer_state = screen.textinput(
+        title=f"Time Left: {timer_format} | Guess the State...",
+        prompt=f"Current Score: {user_score}/50. What's another state's name?",
+    ).title()
 
     if answer_state == "Exit":
         break
@@ -65,9 +67,7 @@ for state in states_left:
     _map.map_update(state, xcor, ycor)
 
 # Save states that were not guessed to a CSV file
-states_to_learn = {
-    "states_left": states_left
-}
+states_to_learn = {"states_left": states_left}
 
 states = pd.DataFrame(states_to_learn)
 states.to_csv("states_to_learn.csv")

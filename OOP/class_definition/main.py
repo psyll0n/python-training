@@ -1,5 +1,6 @@
 #! python3
 
+
 class User:
     # Init function definition
     def __init__(self, user_id, username):

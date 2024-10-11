@@ -8,6 +8,7 @@ t.color("DarkOliveGreen")
 
 sides = 3
 
+
 def draw_shape():
     global sides
     r = random.randrange(0, 256)
@@ -26,4 +27,3 @@ while sides < 10:
 
 screen = turtle.Screen()
 screen.exitonclick()
-
