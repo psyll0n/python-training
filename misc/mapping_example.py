@@ -8,7 +8,7 @@ for num in nums:
 
 new_nums = [num * 4 for num in nums]
 
-new_nums
+print(new_nums)
 
 
 def new_func(num):
@@ -20,7 +20,7 @@ def new_func(num):
     return num**2
 
 
-nums
+print(nums)
 
 for new_nums in map(new_func, nums):
     print(new_nums)
