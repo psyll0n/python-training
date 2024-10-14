@@ -1,8 +1,6 @@
 from tkinter import *
 
 
-
-
 def button_click():
     """
     Event handler for the button click event.
