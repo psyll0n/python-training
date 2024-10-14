@@ -23,7 +23,6 @@ window.config(padx=20, pady=20)
 user_input = Entry(window, width=10)
 user_input.grid(column=1, row=0)  # Place entry at row 2 and column 2.
 
-
 # Label widget to display text - "Miles".
 label_1 = Label(window, text="Miles", font=("Arial", 12, "bold"))
 label_1.grid(column=2, row=0)
