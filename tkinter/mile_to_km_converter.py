@@ -9,8 +9,11 @@ def button_click():
     print("Button was clicked!")
     # Get the text from the Entry widget and update the label.
     miles_to_km = int(user_input.get())
-    conversion_output = miles_to_km * 1.6
+    conversion_output = miles_to_km * 1.609
     label_2.config(text=conversion_output)
+
+    # Format the conversion output to 2 decimal places and update the label.
+    label_2.config(text=f"{conversion_output:.2f}")
 
 
 # Create the main window.
