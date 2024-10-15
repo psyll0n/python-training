@@ -59,7 +59,7 @@ while len(guessed_states) < 50:
 # Handle the end of the game: Show states left to guess by using list comprehension.
 states_left = [state for state in all_states if state not in guessed_states]
 
-# Show unguessed states on the screen
+# Show un-guessed states on the screen
 for state in states_left:
     state_data = data[data.state == state]
     xcor = state_data.x.item()  # Get the x coordinate of the state
