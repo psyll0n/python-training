@@ -7,17 +7,17 @@ import string
 
 
 #  Create a function that generates a random password.
-def generateTempPass(num_chars=15):
+def generate_pass(num_chars=15):
     potential_chars = string.ascii_letters + string.digits + "+=?/!@#$%*"
     result = "".join(secrets.choice(potential_chars) for i in range(num_chars))
     return result
 
 
 #  Function to return a temp password and enforce 1 number and 1 upper case letter.
-def generateStrongPass(num_chars=15):
-    potentialChars = string.ascii_letters + string.digits + "+=?/!@#$%*"
+def generate_strong_pass(num_chars=15):
+    potential_chars = string.ascii_letters + string.digits + "+=?/!@#$%*"
     while True:
-        result = "".join(secrets.choice(potentialChars) for i in range(num_chars))
+        result = "".join(secrets.choice(potential_chars) for i in range(num_chars))
 
         if any(c.isupper() for c in result) and any(c.isdigit() for c in result):
             break
@@ -29,7 +29,7 @@ def generateStrongPass(num_chars=15):
 # print(generateTempPass(15))
 
 # Create a strong temp password.
-print(generateStrongPass(15))
+print(generate_strong_pass(15))
 
 
 #  Create a temp password, hard-to-guess URL.
