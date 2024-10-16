@@ -49,7 +49,7 @@ def save_password():
     else:
         # Confirm credentials before saving
         confirmed = messagebox.askokcancel(title=website,
-                                           message=f"These are the credentials entered: "
+                                           message=f"These are the credentials entered: \n"
                                                    f"Username: {username}\n"
                                                    f"Password: {password}\n"
                                                    f"Is it OK to proceed with saving them?")
