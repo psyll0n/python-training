@@ -1,6 +1,7 @@
+import json
 from tkinter import *
 from tkinter import messagebox
-import secrets, pyperclip
+import secrets
 
 # Global variables to hold current website, username, and password
 website = ""
@@ -43,26 +44,38 @@ def save_password():
     username = username_enry.get()
     password = password_entry.get()
 
-    # Check if any fields are empty and display a warning message if necessary.
-    if website == "" or username == "" or password == "":
-        messagebox.showinfo(title="Ops...", message="Please don't leave any fields empty!")
-    else:
-        # Confirm credentials before saving
-        confirmed = messagebox.askokcancel(title=website,
-                                           message=f"These are the credentials entered: \n"
-                                                   f"Username: {username}\n"
-                                                   f"Password: {password}\n"
-                                                   f"Is it OK to proceed with saving them?")
-        if confirmed:
-            # Append the credentials to the data.txt file
-            with open("data.txt", mode="a") as file:
-                file.write(f"{website} | {username} | {password}\n")
+    # Define a sceleton data file in JSON format.
+    new_data = {
+        website: {
+            "username": username,
+            "password": password,
+        }
+    }
 
-            # Clear the Entry fields after saving
-            website_enry.delete(0, END)
-            username_enry.delete(0, END)
-            password_entry.delete(0, END)
-            print("Credentials saved!")
+
+    # Check if any fields are empty and display a warning message if necessary.
+    if website == "" or password == "":
+        messagebox.showinfo(title="Oops...", message="Please don't leave any fields empty!")
+    else:
+        try:
+            # Try opening the existing file to update it
+            with open("data.json", "r") as data_file:
+                # Read the old data in the JSON file
+                data = json.load(data_file)
+        except FileNotFoundError:
+            # If the file is not found, create a new data dictionary
+            data = {}
+
+        # Update the contents of "data.json" with the new data
+        data.update(new_data)
+
+        # Save the updated data file
+        with open("data.json", "w") as data_file:
+            json.dump(data, data_file, indent=4)
+
+        # Clear the Entry fields after saving
+        website_enry.delete(0, END)
+        password_entry.delete(0, END)
 
 
 # ---------------------------- UI SETUP ------------------------------- #
