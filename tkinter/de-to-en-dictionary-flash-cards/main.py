@@ -10,6 +10,7 @@ mechanism, allowing users to track their learning progress.
 import random
 from tkinter import *
 import pandas as pd
+import os
 
 # ---------------------------- CONSTANTS ------------------------------- #
 BACKGROUND_COLOR = "#B1DDC6"
@@ -36,38 +37,80 @@ class FlashcardApp:
         self.next_card()
 
     def load_word_data(self):
-        """Load vocabulary data from CSV file."""
+        """
+        Load vocabulary data from CSV file.
+        First tries to load from words_to_learn.csv, falls back to german_words.csv if not found.
+
+        The method will:
+        1. First try to load words_to_learn.csv if it exists
+        2. If that fails, try to load german_words.csv
+        3. If both fail, initialize an empty list
+        4. Print appropriate debug messages
+        """
+        words_to_learn_path = "./data/words_to_learn.csv"
+        german_words_path = "./data/german_words.csv"
+
+        # Debug print to check working directory and file existence
+        print(f"Current working directory: {os.getcwd()}")
+        print(f"words_to_learn.csv exists: {os.path.exists(words_to_learn_path)}")
+        print(f"german_words.csv exists: {os.path.exists(german_words_path)}")
+
         try:
-            data = pd.read_csv("./data/words_to_learn.csv")
-            self.words_to_learn = data.to_dict(orient="records")
-        except FileNotFoundError:
-            data = pd.read_csv("./data/german_words.csv")
-            self.words_to_learn = data.to_dict(orient="records")
-        else:
-            print("Error: german_words.csv not found in ./data directory")
+            # First try to load words_to_learn.csv
+            if os.path.exists(words_to_learn_path):
+                data = pd.read_csv(words_to_learn_path)
+                if not data.empty:
+                    print(f"Successfully loaded {len(data)} words from words_to_learn.csv")
+                    self.words_to_learn = data.to_dict(orient="records")
+                    return
+                else:
+                    print("words_to_learn.csv is empty, trying german_words.csv")
+
+            # If words_to_learn.csv doesn't exist or is empty, try german_words.csv
+            if os.path.exists(german_words_path):
+                data = pd.read_csv(german_words_path)
+                if not data.empty:
+                    print(f"Successfully loaded {len(data)} words from german_words.csv")
+                    self.words_to_learn = data.to_dict(orient="records")
+                    return
+                else:
+                    print("german_words.csv is empty")
+
+            # If we get here, neither file was successfully loaded
+            print("No valid word list files found")
+            self.words_to_learn = []
+
+        except pd.errors.EmptyDataError:
+            print("Error: CSV file is empty")
+            self.words_to_learn = []
+        except pd.errors.ParserError as e:
+            print(f"Error parsing CSV file: {e}")
+            self.words_to_learn = []
+        except Exception as e:
+            print(f"Unexpected error loading word data: {e}")
             self.words_to_learn = []
 
     def remove_word(self):
         """
         Remove the current word from the learning list and save the updated list.
         Called when user marks a word as known.
-
-        Removes the current flashcard from words_to_learn and saves the updated list
-        to words_to_learn.csv. Then displays the next card.
         """
+        if not self.words_to_learn:
+            print("No words available to remove")
+            return
+
         try:
             self.words_to_learn.remove(self.current_card)
             # Save updated word list to CSV
-            pd.DataFrame(self.words_to_learn).to_csv(
-                "./data/words_to_learn.csv",
-                index=False  # Prevent adding index column
-            )
+            df = pd.DataFrame(self.words_to_learn)
+            if not df.empty:
+                df.to_csv("./data/words_to_learn.csv", index=False)
+                print(f"Successfully saved {len(df)} words to words_to_learn.csv")
             self.next_card()
         except ValueError:
             print(f"Warning: Could not remove word from list")
         except Exception as e:
             print(f"Error saving words_to_learn.csv: {e}")
-
 
     def next_card(self):
         """
@@ -78,7 +121,9 @@ class FlashcardApp:
             self.window.after_cancel(self.flip_timer)
 
         if not self.words_to_learn:
+            self.canvas.itemconfig(self.card_title, text="Status")
             self.canvas.itemconfig(self.card_word, text="No words available")
+            print("No words available to display")
             return
 
         self.current_card = random.choice(self.words_to_learn)
@@ -138,7 +183,7 @@ class FlashcardApp:
         self.known_button = Button(
             image=self.right_img,
             highlightthickness=0,
-            command=self.remove_word  # Use the `remove_word` method to remove words that are known.
+            command=self.remove_word  # Changed from next_card to remove_word
         )
         self.known_button.grid(row=1, column=1)
 
