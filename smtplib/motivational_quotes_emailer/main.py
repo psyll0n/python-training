@@ -26,11 +26,13 @@ def send_email(sender_email, recipient_email, password, subject, message):
     """
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()  # Secures the connection
-        connection.login(user=sender_email, password=password)  # Logs into the email account
+        connection.login(
+            user=sender_email, password=password
+        )  # Logs into the email account
         connection.sendmail(
             from_addr=sender_email,
             to_addrs=recipient_email,
-            msg=f"Subject:{subject}\n\n{message}"  # Formats the email subject and message
+            msg=f"Subject:{subject}\n\n{message}",  # Formats the email subject and message
         )
 
 
@@ -38,12 +40,22 @@ def send_email(sender_email, recipient_email, password, subject, message):
 if __name__ == "__main__":
     sender_email = "example_sender@gmail.com"  # Sender's email address
     recipient_email = "example_recipient@gmail.com"  # Recipient's email address
-    password = input("Enter the email password: ")  # Prompt the user for the email password
+    password = input(
+        "Enter the email password: "
+    )  # Prompt the user for the email password
 
     # Get current date and day of the week
     now = dt.datetime.now()
     present_day = now.weekday()
-    day_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+    day_of_week = [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+    ]
     day_string = day_of_week[present_day]
 
     day = now.day

@@ -26,7 +26,9 @@ def google_search(query):
     Args:
         query (list): List of words representing the search query.
     """
-    print("Googling...")  # Display a message while the Google search page is downloading.
+    print(
+        "Googling..."
+    )  # Display a message while the Google search page is downloading.
 
     # Build the Google search URL.
     base_url = "http://www.google.com.au/search?q="
@@ -53,6 +55,8 @@ def google_search(query):
 if __name__ == "__main__":
     # Ensure the user provided a search query.
     if len(sys.argv) > 1:
-        google_search(sys.argv[1:])  # Pass the search query to the google_search function.
+        google_search(
+            sys.argv[1:]
+        )  # Pass the search query to the google_search function.
     else:
         print("Please provide a search query.")

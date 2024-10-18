@@ -80,7 +80,9 @@ def countdown(count):
     # If there is still time left, continue counting down
     if count > 0:
         timer_running = True  # Mark the timer as running
-        timer = window.after(1000, countdown, count - 1)  # Calls countdown every 1 second
+        timer = window.after(
+            1000, countdown, count - 1
+        )  # Calls countdown every 1 second
     else:
         timer_running = False  # Timer has finished, allow new countdown
         start_timer()  # Start the next session when current one ends
@@ -102,11 +104,15 @@ window.config(padx=60, pady=50, bg=YELLOW)
 canvas = Canvas(width=200, height=224, bg=YELLOW, highlightthickness=0)
 tomato_img = PhotoImage(file="tomato.png")  # Load tomato image
 canvas.create_image(100, 112, image=tomato_img)  # Center the image on the canvas
-timer_text = canvas.create_text(100, 135, text="00:00", fill="white", font=(FONT_NAME, 20, "bold"))
+timer_text = canvas.create_text(
+    100, 135, text="00:00", fill="white", font=(FONT_NAME, 20, "bold")
+)
 canvas.grid(column=1, row=1)
 
 # Label that displays the current state (Timer, Break, Work)
-app_label = Label(window, text="Timer", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 20, "bold"))
+app_label = Label(
+    window, text="Timer", fg=GREEN, bg=YELLOW, font=(FONT_NAME, 20, "bold")
+)
 app_label.grid(column=1, row=0)
 
 # Start button to start the timer

@@ -46,7 +46,9 @@ def save_password():
 
     # Check for empty fields and show a warning if necessary
     if website == "" or password == "":
-        messagebox.showinfo(title="Oops...", message="Please don't leave any fields empty!")
+        messagebox.showinfo(
+            title="Oops...", message="Please don't leave any fields empty!"
+        )
     else:
         try:
             # Try opening the existing JSON file to update it
@@ -88,12 +90,14 @@ def find_password():
                 messagebox.showinfo(
                     title="Password Found",
                     message=f"Website: {website}\n"
-                            f"Username: {data[website]['username']}\n"
-                            f"Password: {data[website]['password']}"
+                    f"Username: {data[website]['username']}\n"
+                    f"Password: {data[website]['password']}",
                 )
             else:
                 # Website not found in the data
-                messagebox.showinfo(title="Error", message=f"Website '{website}' not found!")
+                messagebox.showinfo(
+                    title="Error", message=f"Website '{website}' not found!"
+                )
     except FileNotFoundError:
         # Handle case when the JSON file doesn't exist
         messagebox.showerror(title="Error", message="No Data File Found.")
@@ -124,7 +128,9 @@ search_button = Button(window, text="Search", width=14, command=find_password)
 search_button.grid(row=1, column=2)
 
 # Email/Username label
-username_label = Label(window, text="Email/Username:", bg="white", font=("Ariel", 10, "bold"))
+username_label = Label(
+    window, text="Email/Username:", bg="white", font=("Ariel", 10, "bold")
+)
 username_label.grid(row=2, column=0)
 
 # Email/Username entry field
@@ -141,11 +147,15 @@ password_entry = Entry(width=24)
 password_entry.grid(row=3, column=1)
 
 # Generate password button
-generate_password_button = Button(window, text="Generate Password", width=14, command=generate_pass)
+generate_password_button = Button(
+    window, text="Generate Password", width=14, command=generate_pass
+)
 generate_password_button.grid(row=3, column=2)
 
 # Password length slider label
-length_slider_label = Label(window, text="Password Length:", bg="white", font=("Ariel", 10, "bold"))
+length_slider_label = Label(
+    window, text="Password Length:", bg="white", font=("Ariel", 10, "bold")
+)
 length_slider_label.grid(row=4, column=0)
 
 # Slider to select password length (10 to 30 characters)

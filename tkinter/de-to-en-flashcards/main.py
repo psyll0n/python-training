@@ -60,7 +60,9 @@ class FlashcardApp:
             if os.path.exists(words_to_learn_path):
                 data = pd.read_csv(words_to_learn_path)
                 if not data.empty:
-                    print(f"Successfully loaded {len(data)} words from words_to_learn.csv")
+                    print(
+                        f"Successfully loaded {len(data)} words from words_to_learn.csv"
+                    )
                     self.words_to_learn = data.to_dict(orient="records")
                     return
                 else:
@@ -70,7 +72,9 @@ class FlashcardApp:
             if os.path.exists(german_words_path):
                 data = pd.read_csv(german_words_path)
                 if not data.empty:
-                    print(f"Successfully loaded {len(data)} words from german_words.csv")
+                    print(
+                        f"Successfully loaded {len(data)} words from german_words.csv"
+                    )
                     self.words_to_learn = data.to_dict(orient="records")
                     return
                 else:
@@ -128,14 +132,18 @@ class FlashcardApp:
 
         self.current_card = random.choice(self.words_to_learn)
         self.canvas.itemconfig(self.card_title, text="German", fill="black")
-        self.canvas.itemconfig(self.card_word, text=self.current_card["german"], fill="black")
+        self.canvas.itemconfig(
+            self.card_word, text=self.current_card["german"], fill="black"
+        )
         self.canvas.itemconfig(self.card_background, image=self.flashcard_front_img)
         self.flip_timer = self.window.after(CARD_FLIP_TIME, self.flip_card)
 
     def flip_card(self):
         """Flip the card to show the English translation."""
         self.canvas.itemconfig(self.card_title, text="English", fill="white")
-        self.canvas.itemconfig(self.card_word, text=self.current_card["english"], fill="white")
+        self.canvas.itemconfig(
+            self.card_word, text=self.current_card["english"], fill="white"
+        )
         self.canvas.itemconfig(self.card_background, image=self.flashcard_back_img)
 
     def setup_ui(self):
@@ -158,32 +166,25 @@ class FlashcardApp:
 
         # Create canvas elements
         self.card_background = self.canvas.create_image(
-            400, 263,
-            image=self.flashcard_front_img
+            400, 263, image=self.flashcard_front_img
         )
         self.card_title = self.canvas.create_text(
-            400, 150,
-            text="",
-            font=(FONT_NAME, 30, "italic")
+            400, 150, text="", font=(FONT_NAME, 30, "italic")
         )
         self.card_word = self.canvas.create_text(
-            400, 263,
-            text="",
-            font=(FONT_NAME, 60, "bold")
+            400, 263, text="", font=(FONT_NAME, 60, "bold")
         )
 
         # Create buttons
         self.unknown_button = Button(
-            image=self.wrong_img,
-            highlightthickness=0,
-            command=self.next_card
+            image=self.wrong_img, highlightthickness=0, command=self.next_card
         )
         self.unknown_button.grid(row=1, column=0)
 
         self.known_button = Button(
             image=self.right_img,
             highlightthickness=0,
-            command=self.remove_word  # Changed from next_card to remove_word
+            command=self.remove_word,  # Changed from next_card to remove_word
         )
         self.known_button.grid(row=1, column=1)
 
