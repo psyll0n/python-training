@@ -8,7 +8,7 @@ import os
 def walk_path(parent_path):
     for parent_path, directories, files in os.walk(parent_path):
         print(f"Checking: {parent_path}")
-        childs = os.listdir(parent_path)
+        children = os.listdir(parent_path)
         for file_name in files:
             file_path = os.path.join(parent_path, file_name)
             last_access = os.path.join(file_path)
@@ -18,7 +18,7 @@ def walk_path(parent_path):
             print(f"\tsize: {size}")
 
     # Construct the full path of an item in the parent directory.
-    for child in childs:
+    for child in children:
         child_path = os.path.join(parent_path, child)
 
     # Check to see if the path represents a file.
