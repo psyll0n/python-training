@@ -17,3 +17,4 @@ class_syntax_explanation2.py
 .idea/*
 .vscode
 .docx
+.env
