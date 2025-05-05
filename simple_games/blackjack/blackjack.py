@@ -10,11 +10,11 @@ def clear_screen():
     Clears the terminal screen using the appropriate command for the user's operating system.
     """
     # Check if the system is Windows, then use 'cls'. Otherwise, use 'clear'.
-    if os.name == 'nt':  # 'nt' stands for Windows
-        os.system('cls')
+    if os.name == "nt":  # 'nt' stands for Windows
+        os.system("cls")
     else:
         # Corrected from 'sleep 10' to 'clear' for Unix-based systems
-        os.system('clear')
+        os.system("clear")
 
 
 def deal_cards():
@@ -23,8 +23,7 @@ def deal_cards():
     Cards 2-10 have their face value, while Jack, Queen, and King count as 10.
     Ace can be 11 or 1.
     """
-    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10,
-             10, 10]  # Ace is 11, face cards are 10
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]  # Ace is 11, face cards are 10
     return random.choice(cards)
 
 
@@ -104,7 +103,8 @@ def play_a_game():
         else:
             # Ask if the user wants to draw another card
             draw_another_card = input(
-                "Would you like to draw a new card? Type 'y' to draw or 'n' to pass: \n")
+                "Would you like to draw a new card? Type 'y' to draw or 'n' to pass: \n"
+            )
             if draw_another_card == "y":
                 user_cards.append(deal_cards())
             else:
@@ -118,8 +118,10 @@ def play_a_game():
     # Display final hands and results
     print(compare_scores(user_score, computer_score))
     print(f"Your final hand: {user_cards}, final score: {user_score}")
-    print(f"Computer's final hand: {
-          computer_cards}, final score: {computer_score}")
+    print(
+        f"Computer's final hand: {
+          computer_cards}, final score: {computer_score}"
+    )
 
 
 # Main game loop

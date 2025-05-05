@@ -53,19 +53,24 @@ while not game_over:
     country_celebrity_B = celebrity_B["country"]
 
     # Print details for celebrity A
-    print(f"Compare A: {celebrity_name_A}, {
-          description_celebrity_A}, from {country_celebrity_A}")
+    print(
+        f"Compare A: {celebrity_name_A}, {
+          description_celebrity_A}, from {country_celebrity_A}"
+    )
 
     # Print the Vs. ASCII art
     print(ascii_art.vs_logo)
 
     # Print details for celebrity B
-    print(f"Against B: {celebrity_name_B}, {
-          description_celebrity_B}, from {country_celebrity_B}")
+    print(
+        f"Against B: {celebrity_name_B}, {
+          description_celebrity_B}, from {country_celebrity_B}"
+    )
 
     # Prompt user to choose who has more Instagram followers
-    user_input = input(
-        "Who has more Instagram followers? Type 'A' or 'B': ").strip().upper()
+    user_input = (
+        input("Who has more Instagram followers? Type 'A' or 'B': ").strip().upper()
+    )
     print("\n" * 100)
 
     # Check if the user's choice is correct
@@ -85,8 +90,12 @@ while not game_over:
         # Print game logo
         print(ascii_art.game_logo)
         print(f"Sorry, that's wrong! Game OVER!")
-        print(f"{celebrity_name_A} has {
-              instagram_followers_A} Million followers")
-        print(f"{celebrity_name_B} has {
-              instagram_followers_B} Million followers")
+        print(
+            f"{celebrity_name_A} has {
+              instagram_followers_A} Million followers"
+        )
+        print(
+            f"{celebrity_name_B} has {
+              instagram_followers_B} Million followers"
+        )
         print(f"Final score: {current_score}")

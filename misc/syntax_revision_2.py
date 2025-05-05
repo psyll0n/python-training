@@ -1,4 +1,4 @@
-""" This script should be executed in the IDLE.
+"""This script should be executed in the IDLE.
 Also it should be imported as follows:
 
 import syntax_revision_2 as wp

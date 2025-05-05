@@ -5,7 +5,7 @@
 - Loads the XKCD home page.
 - Saves the comic image on that page.
 - Follows the Previous Comic link.
-- Repeats until it reaches the first comic. 
+- Repeats until it reaches the first comic.
 """
 
 import requests, os, bs4

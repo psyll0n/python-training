@@ -5,7 +5,7 @@
 • Opens spreadsheet file - ProdceSales.xlsx
 • For each row, checks whether the value in column A is Celery, Garlic, or Lemon.
 • If it is, updates the price in column B.
-• Saves the spreadsheet to a new file so that the old spreadsheet remains unchanged. 
+• Saves the spreadsheet to a new file so that the old spreadsheet remains unchanged.
 """
 
 import openpyxl

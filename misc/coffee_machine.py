@@ -48,11 +48,7 @@ cappuccino = {
 }
 
 # Drinks dictionary for easy lookup
-drinks = {
-    "espresso": espresso,
-    "latte": latte,
-    "cappuccino": cappuccino
-}
+drinks = {"espresso": espresso, "latte": latte, "cappuccino": cappuccino}
 
 # Initialize payment data
 payment = {
@@ -77,13 +73,16 @@ def machine_power_management():
         powered_on = True
 
         while powered_on:
+
             def process_transaction():
                 """Processes the transaction and checks if the user has inserted enough money."""
                 global payment_successful, profit
 
                 selected_drink = drinks[selection]
-                print(f"The price of {selected_drink['id']} is: ${
-                      selected_drink['price']:.2f}")
+                print(
+                    f"The price of {selected_drink['id']} is: ${
+                      selected_drink['price']:.2f}"
+                )
 
                 # Check if the payment is sufficient
                 if payment["total"] >= selected_drink["price"]:
@@ -111,19 +110,18 @@ def machine_power_management():
                 Prompts the user to insert coins and calculates the total amount.
                 """
                 # Prompt the user to insert coins
-                payment["quarters"] = int(
-                    input("Please, insert coins [quarters]: "))
+                payment["quarters"] = int(input("Please, insert coins [quarters]: "))
                 payment["dimes"] = int(input("Please, insert coins [dimes]: "))
-                payment["nickles"] = int(
-                    input("Please, insert coins [nickles]: "))
-                payment["pennies"] = int(
-                    input("Please, insert coins [pennies]: "))
+                payment["nickles"] = int(input("Please, insert coins [nickles]: "))
+                payment["pennies"] = int(input("Please, insert coins [pennies]: "))
 
                 # Calculate total inserted money
-                payment["total"] = (payment["quarters"] * 0.25 +
-                                    payment["dimes"] * 0.10 +
-                                    payment["nickles"] * 0.05 +
-                                    payment["pennies"] * 0.01)
+                payment["total"] = (
+                    payment["quarters"] * 0.25
+                    + payment["dimes"] * 0.10
+                    + payment["nickles"] * 0.05
+                    + payment["pennies"] * 0.01
+                )
 
                 print(f"Total payment: ${payment['total']:.2f}")
                 process_transaction()
@@ -155,9 +153,14 @@ def machine_power_management():
                 drink = drinks[selection]
 
                 # Check if there's enough water, coffee, and milk (if needed)
-                if (existing_resources["water"] >= drink["water"] and
-                    existing_resources["coffee"] >= drink["coffee"] and
-                        ("milk" not in drink or existing_resources["milk"] >= drink["milk"])):
+                if (
+                    existing_resources["water"] >= drink["water"]
+                    and existing_resources["coffee"] >= drink["coffee"]
+                    and (
+                        "milk" not in drink
+                        or existing_resources["milk"] >= drink["milk"]
+                    )
+                ):
 
                     # Ask for payment and process the transaction
                     sum_amount(payment)
@@ -168,7 +171,8 @@ def machine_power_management():
 
             # Prompt the user for their drink selection
             selection = input(
-                "What would you like to order? Espresso, Latte, or Cappuccino? ").lower()
+                "What would you like to order? Espresso, Latte, or Cappuccino? "
+            ).lower()
 
             if selection in drinks:
                 check_resources(selection)

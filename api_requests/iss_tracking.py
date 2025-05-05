@@ -33,7 +33,10 @@ def is_iss_overhead():
     iss_latitude = float(data["iss_position"]["latitude"])
 
     # Check if the ISS is within +/- 5 degrees of the current location
-    if MY_LAT - 5 <= iss_latitude <= MY_LAT + 5 and MY_LONG - 5 <= iss_longitude <= MY_LONG + 5:
+    if (
+        MY_LAT - 5 <= iss_latitude <= MY_LAT + 5
+        and MY_LONG - 5 <= iss_longitude <= MY_LONG + 5
+    ):
         return True
     return False
 
@@ -85,12 +88,14 @@ def send_notification():
     # Establish an SMTP connection with Gmail's server
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()  # Secure the connection
-        connection.login(user=NOTIFICATION_EMAIL, password=EMAIL_PASSWORD)  # Log in to the email account
+        connection.login(
+            user=NOTIFICATION_EMAIL, password=EMAIL_PASSWORD
+        )  # Log in to the email account
         # Send an email with the notification message
         connection.sendmail(
             from_addr=NOTIFICATION_EMAIL,
             to_addrs=NOTIFICATION_EMAIL,
-            msg="Subject: Look up!\n\nThe ISS is above you in the sky!"
+            msg="Subject: Look up!\n\nThe ISS is above you in the sky!",
         )
 
 

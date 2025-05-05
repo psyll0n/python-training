@@ -1,15 +1,15 @@
 #! python3
 
 """
-This is the scoring criteria: 
+This is the scoring criteria:
 
-    - Scores 91 - 100: Grade = "Outstanding" 
+    - Scores 91 - 100: Grade = "Outstanding"
 
-    - Scores 81 - 90: Grade = "Exceeds Expectations" 
+    - Scores 81 - 90: Grade = "Exceeds Expectations"
 
-    - Scores 71 - 80: Grade = "Acceptable" 
+    - Scores 71 - 80: Grade = "Acceptable"
 
-    - Scores 70 or lower: Grade = "Fail" 
+    - Scores 70 or lower: Grade = "Fail"
 """
 
 
