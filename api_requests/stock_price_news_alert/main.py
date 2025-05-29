@@ -1,77 +1,110 @@
-import requests
 import os
-from dotenv import load_dotenv
+import logging
+import requests
 from twilio.rest import Client
+from dotenv import load_dotenv
+from datetime import datetime
+from typing import List, Dict
 
 
-# Load environment variables from a .env file
+# Load environment variables
 load_dotenv()
 
+
+# Configure logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+
+# Constants and Config
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
-STOCK_PRICE_API_KEY = os.getenv("STOCK_PRICE_API_KEY")
-NEWS_API_KEY = os.getenv("NEWS_API_KEY")
+ALERT_THRESHOLD = 5  # in percentage
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
+TWILIO_SID = os.getenv("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
+VIRTUAL_TWILIO_NUMBER = os.getenv("TWILIO_PHONE_NUMBER")
+VERIFIED_NUMBER = os.getenv("RECIPIENT_PHONE_NUMBER")
+STOCK_API_KEY = os.getenv("STOCK_PRICE_API_KEY")
+NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 
-## Use https://www.alphavantage.co/documentation/#daily to get the stock price data.
-url = f"{STOCK_ENDPOINT}?function=TIME_SERIES_DAILY&symbol={STOCK_NAME}&apikey={STOCK_PRICE_API_KEY}"
-response = requests.get(url)
-data = response.json()
-data_list = [value for (key, value) in data['Time Series (Daily)'].items()]
 
-# Get yesterday's closing stock price. 
-YESTERDAYS_CLOSE = float(data_list[1]['4. close'])
-print(f"Stock Price - Yesterday: {YESTERDAYS_CLOSE} USD")
-
-# Get the day before yesterday's closing stock price
-DAY_BEFORE_YESTERDAY_CLOSE = float(data_list[2]['4. close'])
-print(f"Stock Price - Day Before Yesterday: {DAY_BEFORE_YESTERDAY_CLOSE} USD")
-
-# Find the positive difference between 1 and 2. e.g. 40 - 20 = -20, 
-# but the positive difference is 20. Hint: https://www.w3schools.com/python/ref_func_abs.asp
-positive_difference = abs(YESTERDAYS_CLOSE - DAY_BEFORE_YESTERDAY_CLOSE)
-print(f"Positive difference: {positive_difference:.2f} USD")
-
-# When stock price increase/decreases by 5% between yesterday and the day before yesterday then print("Get News").
-if positive_difference > 5:
-    news_parameters = {
-        "apiKey": os.getenv("NEWS_API_KEY"),
-        "qInTitle": COMPANY_NAME,
-        "sortBy": "relevancy",
-        "pageSize": 3,  # Get the first 3 articles
+def get_stock_data(symbol: str) -> Dict[str, Dict[str, str]]:
+    logging.info("Fetching stock data...")
+    params = {
+        "function": "TIME_SERIES_DAILY",
+        "symbol": symbol,
+        "apikey": STOCK_API_KEY,
     }
-    print("----- Get News -----")
-    
-# Make a request to the News API to get articles related to the COMPANY_NAME
-# and print the first 3 articles' title and description.
-news_response = requests.get(NEWS_ENDPOINT, params=news_parameters)
-# Use Python slice operator to create a list that contains the first 3 articles. 
-# Hint: https://stackoverflow.com/questions/509211/understanding-slice-notation
-articles = news_response.json().get("articles", [])[:3]  
+    response = requests.get(STOCK_ENDPOINT, params=params)
+    response.raise_for_status()
+    return response.json().get("Time Series (Daily)", {})
 
-three_articles = articles[:3]  # Get the first 3 articles
-print(three_articles)
 
-for article in three_articles:
-    formatted_articles = [f"Headline: {article['title']}\n Brief: {article['description']}\n"]
+def calculate_price_difference(data: Dict[str, Dict[str, str]]) -> tuple[float, str, float]:
+    dates = sorted(data.keys(), reverse=True)
+    logging.info(f"Available dates from API: {dates}")
 
-# Use `twilio.com/docs/sms/quickstart/python` to send a message to your phone number 
-# with the first 3 articles' title and description.
-account_sid = os.getenv('TWILIO_ACCOUNT_SID')
-auth_token = os.getenv('TWILIO_AUTH_TOKEN')
-client = Client(account_sid, auth_token)
+    if len(dates) < 2:
+        raise ValueError("Not enough stock data to compare.")
 
-# Create a message with the first article's title and description.
-for article in formatted_articles:
-    # Format the message with the stock name, change percentage, headline, and brief.
-    # change_percentage = (positive_difference / DAY_BEFORE_YESTERDAY_CLOSE) * 100
-    # change_symbol = "🔺" if YESTERDAYS_CLOSE > DAY_BEFORE_YESTERDAY_CLOSE else "🔻"
-    message = client.messages.create(
-    from_='+15612038721',
-    to='+359878377268',
-    body=article
-)
-    
-print(f"Message sent: {message.sid}")
+    yesterday_price = float(data[dates[0]]["4. close"])
+    day_before_price = float(data[dates[1]]["4. close"])
+    difference = yesterday_price - day_before_price
+    up_down = "🔺" if difference > 0 else "🔻"
+    percent_diff = round((abs(difference) / day_before_price) * 100, 2)
 
+    logging.info(f"Price changed by {percent_diff}% {up_down}")
+    return percent_diff, up_down, yesterday_price
+
+
+def get_news(company_name: str) -> List[Dict[str, str]]:
+    logging.info("Fetching news articles...")
+    params = {
+        "apiKey": NEWS_API_KEY,
+        "qInTitle": company_name,
+        "sortBy": "publishedAt",
+        "language": "en"
+    }
+    response = requests.get(NEWS_ENDPOINT, params=params)
+    response.raise_for_status()
+    return response.json().get("articles", [])[:3]
+
+
+def format_articles(articles: List[Dict[str, str]], stock: str, direction: str, percent: float) -> List[str]:
+    return [
+        f"{stock}: {direction}{percent}%\nHeadline: {article['title']}\nBrief: {article['description']}"
+        for article in articles
+    ]
+
+
+def send_alerts(messages: List[str]):
+    logging.info("Sending alerts via Twilio...")
+    client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
+    for message in messages:
+        sent_msg = client.messages.create(
+            body=message,
+            from_=VIRTUAL_TWILIO_NUMBER,
+            to=VERIFIED_NUMBER
+        )
+        logging.info(f"Message sent. SID: {sent_msg.sid}")
+
+
+def main():
+    try:
+        stock_data = get_stock_data(STOCK_NAME)
+        percent_diff, direction, _ = calculate_price_difference(stock_data)
+
+        if percent_diff > ALERT_THRESHOLD:
+            articles = get_news(COMPANY_NAME)
+            messages = format_articles(articles, STOCK_NAME, direction, percent_diff)
+            send_alerts(messages)
+        else:
+            logging.info(f"No alert sent. Change is only {percent_diff}%.")
+
+    except Exception as e:
+        logging.error(f"An error occurred: {e}")
+
+
+if __name__ == "__main__":
+    main()
