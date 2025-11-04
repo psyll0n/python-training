@@ -2,8 +2,10 @@
 
 
 class User:
+    """A simple user class with follow functionality."""
     # Init function definition
     def __init__(self, user_id, username):
+        """Initialize a new User with ID and username."""
         self.id = user_id
         self.username = username
         # Setting up a default value of the `followers` attribute.
@@ -12,6 +14,7 @@ class User:
 
     # Definition of a new method
     def follow(self, user):
+        """Follow another user, updating follower counts."""
         user.followers += 1
         self.following += 1
 
