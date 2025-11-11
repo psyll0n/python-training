@@ -3,6 +3,7 @@
 
 class User:
     """A simple user class with follow functionality."""
+
     # Init function definition
     def __init__(self, user_id, username):
         """Initialize a new User with ID and username."""

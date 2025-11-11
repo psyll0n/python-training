@@ -12,7 +12,9 @@ load_dotenv()
 
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 # Constants and Config
@@ -41,7 +43,9 @@ def get_stock_data(symbol: str) -> Dict[str, Dict[str, str]]:
     return response.json().get("Time Series (Daily)", {})
 
 
-def calculate_price_difference(data: Dict[str, Dict[str, str]]) -> tuple[float, str, float]:
+def calculate_price_difference(
+    data: Dict[str, Dict[str, str]],
+) -> tuple[float, str, float]:
     dates = sorted(data.keys(), reverse=True)
     logging.info(f"Available dates from API: {dates}")
 
@@ -64,14 +68,16 @@ def get_news(company_name: str) -> List[Dict[str, str]]:
         "apiKey": NEWS_API_KEY,
         "qInTitle": company_name,
         "sortBy": "publishedAt",
-        "language": "en"
+        "language": "en",
     }
     response = requests.get(NEWS_ENDPOINT, params=params)
     response.raise_for_status()
     return response.json().get("articles", [])[:3]
 
 
-def format_articles(articles: List[Dict[str, str]], stock: str, direction: str, percent: float) -> List[str]:
+def format_articles(
+    articles: List[Dict[str, str]], stock: str, direction: str, percent: float
+) -> List[str]:
     return [
         f"{stock}: {direction}{percent}%\nHeadline: {article['title']}\nBrief: {article['description']}"
         for article in articles
@@ -83,9 +89,7 @@ def send_alerts(messages: List[str]):
     client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
     for message in messages:
         sent_msg = client.messages.create(
-            body=message,
-            from_=VIRTUAL_TWILIO_NUMBER,
-            to=VERIFIED_NUMBER
+            body=message, from_=VIRTUAL_TWILIO_NUMBER, to=VERIFIED_NUMBER
         )
         logging.info(f"Message sent. SID: {sent_msg.sid}")
 

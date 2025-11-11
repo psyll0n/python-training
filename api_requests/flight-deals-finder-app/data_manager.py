@@ -1,4 +1,3 @@
-
 import os
 import requests
 from requests.auth import HTTPBasicAuth
@@ -10,6 +9,7 @@ load_dotenv()
 
 
 SHEETY_PRICES_ENDPOINT = os.environ["SHEETY_PRICES_ENDPOINT"]
+
 
 class DataManager:
 
@@ -23,7 +23,7 @@ class DataManager:
         # Use the Sheety API to GET all the data in that sheet and print it out.
         response = requests.get(url=SHEETY_PRICES_ENDPOINT)
         data = response.json()
-        print("Sheety response:", data) 
+        print("Sheety response:", data)
         self.destination_data = data["prices"]
         # 3. Try importing pretty print and printing the data out again using pprint() to see it formatted.
         # pprint(data)
@@ -33,16 +33,11 @@ class DataManager:
     # to update the Google Sheet with the IATA codes. (Do this using code).
     def update_destination_codes(self):
         for city in self.destination_data:
-            new_data = {
-                "price": {
-                    "iataCode": city["iataCode"]
-                }
-            }
+            new_data = {"price": {"iataCode": city["iataCode"]}}
             response = requests.put(
-                url=f"{SHEETY_PRICES_ENDPOINT}/{city['id']}",
-                json=new_data
+                url=f"{SHEETY_PRICES_ENDPOINT}/{city['id']}", json=new_data
             )
-            print(response.text)      
+            print(response.text)
 
     # Update the flight prices in the Google Sheet document.
     # This method will be called after you find the cheapest flight.
@@ -50,13 +45,8 @@ class DataManager:
     # It will use the row id from sheet_data to update the Google Sheet with the new flight prices.
     def update_flight_prices(self):
         for city in self.destination_data:
-            new_data = {
-                "price": {
-                    "lowestPrice": city["lowestPrice"]
-                }
-            }
+            new_data = {"price": {"lowestPrice": city["lowestPrice"]}}
             response = requests.put(
-                url=f"{SHEETY_PRICES_ENDPOINT}/{city['id']}",
-                json=new_data
+                url=f"{SHEETY_PRICES_ENDPOINT}/{city['id']}", json=new_data
             )
             print(response.text)

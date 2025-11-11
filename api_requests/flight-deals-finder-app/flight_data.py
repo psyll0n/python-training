@@ -11,7 +11,14 @@ class FlightData:
     This class is responsible for structuring the flight data and finding the cheapest flight.
     """
 
-    def __init__(self, originLocationCode, destinationLocationCode, departureDateTimeRange, travellers=1, price=None):
+    def __init__(
+        self,
+        originLocationCode,
+        destinationLocationCode,
+        departureDateTimeRange,
+        travellers=1,
+        price=None,
+    ):
         """
         Initializes the FlightData object with flight search parameters.
 
@@ -44,14 +51,14 @@ class FlightData:
         # Get a bearer token
         token_response = requests.post(
             url=TOKEN_ENDPOINT,
-            headers={'Content-Type': 'application/x-www-form-urlencoded'},
+            headers={"Content-Type": "application/x-www-form-urlencoded"},
             data={
-                'grant_type': 'client_credentials',
-                'client_id': api_key,
-                'client_secret': api_secret
-            }
+                "grant_type": "client_credentials",
+                "client_id": api_key,
+                "client_secret": api_secret,
+            },
         )
-        token = token_response.json().get('access_token')
+        token = token_response.json().get("access_token")
         if not token:
             print("Failed to get access token.")
             return None
@@ -62,7 +69,7 @@ class FlightData:
             "destinationLocationCode": self.destinationLocationCode,
             "departureDate": self.departureDateTimeRange[0],
             "adults": self.travellers,
-            "max": 20  # Get up to 20 offers to increase chance of finding cheapest
+            "max": 20,  # Get up to 20 offers to increase chance of finding cheapest
         }
         if self.price:
             params["maxPrice"] = self.price
@@ -87,7 +94,7 @@ class FlightData:
                 "departure_airport": self.originLocationCode,
                 "arrival_airport": self.destinationLocationCode,
                 "departure_date": self.departureDateTimeRange[0],
-                "details": cheapest
+                "details": cheapest,
             }
         except (KeyError, ValueError, IndexError):
             print("Error parsing flight data.")

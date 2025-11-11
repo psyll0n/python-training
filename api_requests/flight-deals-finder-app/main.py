@@ -48,12 +48,12 @@ for row in sheet_data:
         originLocationCode="SOF",  # Example: Sofia Airport
         destinationLocationCode=iata_code,
         departureDateTimeRange=(start_date, end_date),
-        travellers=1
+        travellers=1,
     )
     result = fd.find_cheapest_flight()
     if result:
         print(f"{city}: {result['price']} {result['currency']}")
-        row["lowestPrice"] = result['price']
+        row["lowestPrice"] = result["price"]
     else:
         print(f"{city}: N/A")
         row["lowestPrice"] = "N/A"
@@ -61,4 +61,3 @@ for row in sheet_data:
 # Update the Google Sheet with the new prices
 data_manager.destination_data = sheet_data
 data_manager.update_flight_prices()
-
