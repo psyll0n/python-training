@@ -30,3 +30,7 @@ print(func())
 
 can_run = False
 print(func())
+
+print("\n" + "="*70)
+print("STANDARD DECORATOR BLUEPRINT")
+print("="*70)

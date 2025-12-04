@@ -58,29 +58,36 @@ Master classes, objects, and object-oriented design.
 
 ---
 
-### [Decorator Functions](./decorator_func/)
+### [Decorator Functions](./decorators/)
 Function decorators and metaprogramming.
 
-- **simple_decorator.py** - Basic decorator pattern
-- **decorator_func_primer.py** - Decorator fundamentals
-- **decorator_function.py** - Creating custom decorators
-- **decorator_function2.py** - Decorators with arguments
-- **decorator_function3.py** - Advanced decorator patterns
-- **decorator_timing_func.py** - Performance timing decorator
-- **decorator_metadata.py** - Preserving function metadata with @wraps
-- **caching_with_decorators.py** - Memoization with decorators
-- **decorator_classes.py** - Class-based decorators
-- **decorators_with_classes.py** - Decorating classes
-- **decorator_using_args_kwargs.py** - Flexible decorators with *args/**kwargs
-- **html_decorator_styling.py** - HTML wrapper decorator
-- **python_decorators.py** - Comprehensive decorator guide
-- **python_decorators2.py** - More decorator examples
-- **decorators_usecases.py** - Practical use cases
+#### Core Decorator Concepts
+**Basic Patterns:**
+- **simple_decorator.py** - Basic decorator pattern, @decorator syntax, universal template
+- **decorator_func_primer.py** - From manual decoration to @wraps, metadata preservation
+- **decorator_function.py** - Simple decorator structure, before/after execution
+- **decorator_function2.py** - Practical timing decorator, performance measurement
+- **decorator_function3.py** - Execution order, definition vs call time
+
+#### Practical Decorators
+- **decorator_timing_func.py** - High-resolution timing with perf_counter, *args/**kwargs
+- **decorator_metadata.py** - Preserving function metadata with @wraps, best practices
+- **caching_with_decorators.py** - @lru_cache memoization, call statistics, performance
+- **decorator_using_args_kwargs.py** - Universal decorator template, flexible signatures
+- **html_decorator_styling.py** - Chaining decorators, execution order, decorator composition
+
+#### Advanced Patterns
+- **decorator_classes.py** - Class-based decorators, __call__, state management, inheritance
+- **decorators_with_classes.py** - Call counting, maintaining state, statistics tracking
+- **decorator_func_blueprint.py** - Conditional execution, decorator template, guard patterns
+- **decorator_munching.py** - Parameterized decorators (with parameters), decorator factories
+- **decorators_usecases.py** - Real-world patterns: authentication, logging, configuration
 
 **Common Decorators:**
-- @property, @staticmethod, @classmethod
-- @wraps (from functools)
-- Custom timing, logging, caching decorators
+- @property, @staticmethod, @classmethod (class decorators)
+- @wraps (from functools) - Preserve function metadata
+- @lru_cache (from functools) - Automatic memoization
+- Custom: timing, logging, caching, authentication, validation
 
 ---
 
