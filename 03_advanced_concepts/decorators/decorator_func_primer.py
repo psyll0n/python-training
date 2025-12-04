@@ -1,69 +1,89 @@
 #!/usr/bin/env python3
 
-# Python Decorator function example.
-# Decorators wrap a function and modify its behaviour in one way or another.
+"""
+Python Decorator Function Primer
+--------------------------------
+This script demonstrates how to use decorators in Python to wrap functions and modify their behavior.
+It covers:
+    - Basic decorator implementation
+    - The @decorator syntax
+    - The importance of preserving function metadata using functools.wraps
+"""
 
 
-def a_new_decorator(a_func):
-    def wrapTheFunction():
-        print("I am doing some boring work before executing a_func()")
+# Basic Decorator Function
+def basic_decorator(func):
+    """
+    A decorator function that wraps another function to add behavior before and after its execution.
 
-        a_func()
+    Args:
+        func (function): The function to be decorated.
 
-        print("I am doing some boring work after executing a_func()")
-
-    return wrapTheFunction
-
-
-def a_function_requiring_decoration():
-    print("I am the function which needs some decoration to remove my foul smell")
-
-
-a_function_requiring_decoration()
-
-a_function_requiring_decoration = a_new_decorator(a_function_requiring_decoration)
-
-a_function_requiring_decoration()
+    Returns:
+        function: The wrapped function with added behavior.
+    """
+    def wrapper():
+        print("[Decorator] Doing some work before executing the function...")
+        func()
+        print("[Decorator] Doing some work after executing the function...")
+    return wrapper
 
 
-# With the @a_new_decorator we can use the short way of defining the same decorator function.
-print("Short way of defining a decorator function.")
+def undecorated_function():
+    """
+    Example function that will be decorated to enhance its functionality.
+    """
+    print("I am the function which needs some decoration to remove my foul smell.")
 
+# --- Manual decoration (long way) ---
+print("Manual decoration (long way):")
+undecorated_function()
+undecorated_function = basic_decorator(undecorated_function)
+undecorated_function()
 
-@a_new_decorator
-def a_function_requiring_decoration():
-    """Hey, you decorate me!"""
-    print("I am the function which needs some decoration to remove my foul smell")
+# --- Using @decorator syntax (short way) ---
+print("\nShort way of defining a decorator function:")
 
+@basic_decorator
+def decorated_function():
+    """
+    Another example function to demonstrate decorator usage.
+    """
+    print("I am the function which needs some decoration to remove my foul smell.")
 
-a_function_requiring_decoration()
+decorated_function()
 
+# Demonstrate the issue with function metadata
+print(f"Function name after decoration: {decorated_function.__name__}")
+# Output: wrapper
 
-print(a_function_requiring_decoration.__name__)
-# Output: wrapTheFunction
-
-# The output is not what we expected! Its name is “a_function_requiring_decoration”. Well,
-# our function was replaced by wrapTheFunction. It overrode the name and docstring
-# of our function. Luckily, Python provides us a simple function to solve this problem
-# and that is functools.wraps.
-
+# --- Solution: Use functools.wraps to preserve metadata ---
+print("\nUsing functools.wraps to preserve function metadata:")
 from functools import wraps
 
+def metadata_preserving_decorator(func):
+    """
+    A decorator function that wraps another function to add behavior before and after its execution.
+    Uses functools.wraps to preserve the original function's metadata.
 
-def a_new_decorator(a_func):
-    @wraps(a_func)
-    def wrapTheFunction():
-        print("I am doing some boring work before executing a_func()")
-        a_func()
-        print("I am doing some boring work after executing a_func()")
+    Args:
+        func (function): The function to be decorated.
 
-    return wrapTheFunction
+    Returns:
+        function: The wrapped function with added behavior and preserved metadata.
+    """
+    @wraps(func)
+    def wrapper():
+        print("[Decorator] Doing some work before executing the function...")
+        func()
+        print("[Decorator] Doing some work after executing the function...")
+    return wrapper
 
+@metadata_preserving_decorator
+def function_with_metadata():
+    """
+    Hey yo! Decorate me!
+    """
+    print("I am the function which needs some decoration to remove my foul smell.")
 
-@a_new_decorator
-def a_function_requiring_decoration():
-    """Hey yo! Decorate me!"""
-    print("I am the function which needs some decoration to " "remove my foul smell")
-
-
-print(a_function_requiring_decoration.__name__)
+print(f"Function name after decoration: {function_with_metadata.__name__}")

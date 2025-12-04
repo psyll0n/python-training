@@ -63,31 +63,32 @@ Function decorators and metaprogramming.
 
 #### Core Decorator Concepts
 **Basic Patterns:**
-- **simple_decorator.py** - Basic decorator pattern, @decorator syntax, universal template
-- **decorator_func_primer.py** - From manual decoration to @wraps, metadata preservation
-- **decorator_function.py** - Simple decorator structure, before/after execution
-- **decorator_function2.py** - Practical timing decorator, performance measurement
-- **decorator_function3.py** - Execution order, definition vs call time
+
+#### More Examples:
+- **decorator_func_blueprint.py** - Blueprint for conditional decorators, guard patterns
+- **decorator_classes.py** - Class-based decorators, __call__, state management
+- **decorators_with_classes.py** - Decorators using classes, call counting, statistics
+- **classmethod_decorator.py** - Using @classmethod as a decorator
+- **static_method_decorator.py** - Using @staticmethod as a decorator
+- **property_decorator.py** - Using @property for managed attributes
+- **python_decorators.py** - General decorator examples
+- **python_decorators2.py** - Additional decorator patterns
 
 #### Practical Decorators
-- **decorator_timing_func.py** - High-resolution timing with perf_counter, *args/**kwargs
-- **decorator_metadata.py** - Preserving function metadata with @wraps, best practices
-- **caching_with_decorators.py** - @lru_cache memoization, call statistics, performance
-- **decorator_using_args_kwargs.py** - Universal decorator template, flexible signatures
-- **html_decorator_styling.py** - Chaining decorators, execution order, decorator composition
 
-#### Advanced Patterns
-- **decorator_classes.py** - Class-based decorators, __call__, state management, inheritance
-- **decorators_with_classes.py** - Call counting, maintaining state, statistics tracking
-- **decorator_func_blueprint.py** - Conditional execution, decorator template, guard patterns
-- **decorator_munching.py** - Parameterized decorators (with parameters), decorator factories
+#### More Practical Examples:
+- **decorator_munching.py** - Parameterized decorators, decorator factories
 - **decorators_usecases.py** - Real-world patterns: authentication, logging, configuration
 
+#### Advanced Patterns
+
+#### Other Examples:
+- **decorator_munching.py** - Parameterized decorators, decorator factories
+- **decorator_metadata.py** - Metadata preservation with functools.wraps
+- **decorator_timing_func.py** - Timing function execution
+- **html_decorator_styling.py** - HTML output styling with decorators
+
 **Common Decorators:**
-- @property, @staticmethod, @classmethod (class decorators)
-- @wraps (from functools) - Preserve function metadata
-- @lru_cache (from functools) - Automatic memoization
-- Custom: timing, logging, caching, authentication, validation
 
 ---
 
