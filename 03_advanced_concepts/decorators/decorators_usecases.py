@@ -144,7 +144,7 @@ print(f"Result: {addition_func(4)}\n")
 # USE CASE 3: PARAMETERIZED DECORATORS
 # ============================================================================
 
-def logit(logfile="out.log"):
+def logit_to_file(logfile="out.log"):
     """Decorator factory that accepts configuration parameters.
     
     This is a more advanced pattern where the decorator itself can be
@@ -160,18 +160,18 @@ def logit(logfile="out.log"):
     Why This Pattern?
     
     Without parameters:
-        @logit
+        @logit_to_file()
         def func():
             pass
         
         All decorated functions log to the same file.
     
     With parameters:
-        @logit(logfile="critical.log")
+        @logit_to_file(logfile="critical.log")
         def critical_func():
             pass
         
-        @logit(logfile="debug.log")
+        @logit_to_file(logfile="debug.log")
         def debug_func():
             pass
         
@@ -179,7 +179,7 @@ def logit(logfile="out.log"):
     
     How It Works:
     
-        1. logit(logfile="out.log") is called
+        1. logit_to_file(logfile="out.log") is called
            - Returns logging_decorator function
         2. @logging_decorator is applied to the function
            - logging_decorator is called with the function
@@ -248,7 +248,7 @@ def logit(logfile="out.log"):
 
 
 # Use the parameterized decorator with default parameters
-@logit()
+@logit_to_file()
 def myfunc1():
     """Function using default log file."""
     print("myfunc1 executed")
@@ -258,7 +258,7 @@ myfunc1()
 
 
 # Use the parameterized decorator with custom log file
-@logit(logfile="func2.log")
+@logit_to_file(logfile="func2.log")
 def myfunc2():
     """Function using custom log file."""
     print("myfunc2 executed")
@@ -300,12 +300,12 @@ print("""
    Use: Create flexible, configurable decorators
    Example: Different behavior based on parameters
    
-   @logit(logfile="important.log")
+   @logit_to_file(logfile="important.log")
    def important_function():
        # Logs to specified file
        pass
    
-   @logit(logfile="debug.log")
+   @logit_to_file(logfile="debug.log")
    def debug_function():
        # Logs to different file
        pass
