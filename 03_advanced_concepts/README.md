@@ -222,6 +222,27 @@ Structural pattern matching (Python 3.10+).
 - **Multiprocessing**: Use for CPU-bound operations
 - **Multithreading**: Be aware of GIL limitations in Python
 
+### Note: Understanding Python’s Global Interpreter Lock (GIL)
+
+The Global Interpreter Lock (GIL) is a core part of CPython (the default Python interpreter). It controls how threads execute Python bytecode and helps protect shared internal state.
+
+#### Why does the GIL exist?
+
+- It protects CPython’s internal data structures from unsafe concurrent access.
+- It simplifies memory management, especially reference counting.
+- It reduces complexity for CPython extension developers working with C code.
+- It helps maintain compatibility with C libraries that are not thread-safe.
+
+#### Main limitation
+
+- For CPU-bound tasks, only one thread can execute Python bytecode at a time.
+- This limits multi-core performance gains in multi-threaded Python code.
+
+#### Practical takeaway
+
+- Use `multiprocessing` for CPU-bound workloads to leverage multiple CPU cores.
+- Use `threading` for I/O-bound workloads (network/file I/O), where waiting time often releases the GIL.
+
 ## ⚡ Performance
 
 - Generators use less memory than lists
