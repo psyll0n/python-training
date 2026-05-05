@@ -19,6 +19,7 @@ A comprehensive collection of Python scripts, programs, and exercises organized 
 - [09. Algorithms](#09-algorithms)
 - [10. Projects](#10-projects)
 - [11. Exercises](#11-exercises)
+- [12. Pytest](#12-pytest)
 
 ---
 
@@ -226,6 +227,27 @@ Practice exercises and miscellaneous scripts.
 
 ---
 
+## 12. Pytest
+
+**Location:** [`12_pytest/`](./12_pytest/)
+
+A progressive, hands-on introduction to testing Python code with [pytest](https://docs.pytest.org/), ordered from beginner to advanced concepts. See the [12_pytest README](./12_pytest/README.md) for full details on each section.
+
+### Contents:
+- **[source/](./12_pytest/source/)** - Source modules used as subjects under test
+  - `my_functions.py` - Basic arithmetic functions
+  - `shapes.py` - OOP shape classes (Circle, Rectangle, Square)
+  - `service.py` - Service layer with an external HTTP call
+- **[tests/](./12_pytest/tests/)** - Test suite organised by increasing complexity
+  - `test_my_functions.py` - Basic assertions, `pytest.raises`, and test markers (`skip`, `xfail`, `slow`)
+  - `test_circle.py` - Class-based tests with `setup_method` / `teardown_method`
+  - `test_rectangle.py` - Function-level fixtures injected from `conftest.py`
+  - `test_square.py` - Parametrized tests with `@pytest.mark.parametrize`
+  - `test_service.py` - Mocking external HTTP dependencies with `unittest.mock`
+  - `conftest.py` - Shared fixtures available across the whole test suite
+
+---
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -274,7 +296,8 @@ python conditions_example.py
 1. Dive into **07. Frameworks** - Web application development
 2. Explore **08. Cloud Services** - Cloud integration and deployment
 3. Master **09. Algorithms** - Efficient algorithm implementations
-4. Create complex applications using multiple concepts together
+4. Study **12. Pytest** - Write professional tests with fixtures, parametrize, and mocking
+5. Create complex applications using multiple concepts together
 
 ---
 
