@@ -1,7 +1,8 @@
 # classmethod_decorator.py - Demonstrates the use of the `@classmethod` decorator in Python.
 #
-# The @classmethod decorator is used to define a method that is bound to the class and not the instance of the class.
-# This means the method receives the class (`cls`) as its first argument, allowing it to access or modify class state.
+# The @classmethod decorator is used to define a method that is bound to the class and not the
+# instance of the class. This means the method receives the class (`cls`) as its first argument,
+# allowing it to access or modify class state.
 
 
 

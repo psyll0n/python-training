@@ -9,6 +9,15 @@ from functools import wraps
 
 
 def decorator_name(f):
+    """A simple decorator function that demonstrates the use of @wraps.
+    
+    This decorator checks a global variable `can_run` to determine if the decorated function should execute.
+    If `can_run` is False, it returns a message instead of calling the function.
+    If `can_run` is True, it calls the decorated function as normal.
+    
+    Args:
+        f (callable): The function to be decorated
+    """
     @wraps(f)
     def decorated(*args, **kwargs):
         if not can_run:
@@ -20,7 +29,7 @@ def decorator_name(f):
 
 @decorator_name
 def func():
-    """Function Docstring"""
+    """ A simple function that prints a message. This function is decorated with `decorator_name`."""
     print("Function is running.")
 
 
